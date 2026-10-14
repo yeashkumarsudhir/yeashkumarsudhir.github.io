@@ -495,29 +495,6 @@
       transform: scale(1.02);
     }
 
-    .portrait-fallback {
-      position: absolute;
-      inset: 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      background-color: var(--bg-surface);
-      color: var(--ink-secondary);
-    }
-
-    .portrait-fallback-code {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent-vermilion);
-      margin-bottom: 0.5rem;
-      padding: 0.25rem 0.5rem;
-      background: var(--accent-vermilion-soft);
-      border: 1px solid var(--accent-vermilion);
-    }
-
     .portrait-caption {
       display: flex;
       justify-content: space-between;
@@ -1202,20 +1179,14 @@
             </div>
           </div>
 
-          <!-- Right Column: Profile Photo (profile.jpeg) -->
+          <!-- Right Column: Profile Photo (Profile.jpeg) -->
           <div class="portrait-card">
             <div class="portrait-frame">
               <img 
                 src="profile.jpeg" 
                 alt="Yeash Kumar Sudhir" 
                 class="portrait-img"
-                onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
               />
-              <!-- Fallback shown only if profile.jpeg is not yet placed in folder -->
-              <div id="photo-fallback" class="portrait-fallback">
-                <span class="portrait-fallback-code">profile.jpeg</span>
-                <p style="font-size: 0.84rem;">Apni photo ko <strong>profile.jpeg</strong> naam se apne VS Code wale folder me save karein, wo yahan dikhne lagegi.</p>
-              </div>
             </div>
             <div class="portrait-caption">
               <span>YEASH KUMAR SUDHIR</span>
@@ -1503,7 +1474,7 @@
                   <span>2023 – 2024</span>
                 </div>
                 <div class="cred-title">UP Board — 65.60%</div>
-                <div class="cred-inst">Government City Inter College, Varanasi</div>
+                <div class="cred-inst">Government City Inter College, Ghazipur</div>
               </div>
 
               <div class="cred-row">
@@ -1512,7 +1483,7 @@
                   <span>2021 – 2022</span>
                 </div>
                 <div class="cred-title">UP Board — 74.33%</div>
-                <div class="cred-inst">Government City Inter College, Varanasi</div>
+                <div class="cred-inst">Government City Inter College, Ghazipur</div>
               </div>
 
               <div class="cred-row">
