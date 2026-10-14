@@ -10,6 +10,7 @@
   <meta property="og:title" content="Yeash Kumar Sudhir — Web & Software Developer" />
   <meta property="og:description" content="BCA student developing practical web apps and software, with a sharp eye for photography and video production. Founder of Advocate Diary." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yeashkumarsudhir.github.io/" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Google Fonts: Instrument Serif, Plus Jakarta Sans, JetBrains Mono -->
@@ -122,7 +123,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
     }
 
     .brand-wordmark {
@@ -148,7 +150,14 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 1.75rem;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .header-nav {
+        gap: 1.75rem;
+      }
     }
 
     .nav-link {
@@ -392,7 +401,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       margin-bottom: 2.5rem;
     }
 
@@ -1073,6 +1082,7 @@
         <a href="#work" class="nav-link">01 / Work</a>
         <a href="#about" class="nav-link">02 / About</a>
         <a href="#capabilities" class="nav-link">03 / Skills</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume PDF ↗</a>
         <a href="#contact" class="nav-cta">Get in Touch</a>
       </nav>
     </div>
@@ -1138,8 +1148,16 @@
                 <span>Live App</span>
                 <span aria-hidden="true">↗</span>
               </a>
-              <a href="#contact" class="btn-secondary">
-                <span>Contact Details</span>
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <!-- Document PDF Icon -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                <span>View Resume (PDF)</span>
+                <span aria-hidden="true">↗</span>
               </a>
             </div>
 
@@ -1179,13 +1197,14 @@
             </div>
           </div>
 
-          <!-- Right Column: Profile Photo (Profile.jpeg) -->
+          <!-- Right Column: Profile Photo (Supports both profile.jpeg and Profile.jpeg) -->
           <div class="portrait-card">
             <div class="portrait-frame">
               <img 
                 src="profile.jpeg" 
                 alt="Yeash Kumar Sudhir" 
                 class="portrait-img"
+                onerror="if(!this.dataset.retried){this.dataset.retried='true';this.src='Profile.jpeg';}"
               />
             </div>
             <div class="portrait-caption">
@@ -1270,7 +1289,7 @@
             <div class="narrative-step">03 / The Impact</div>
             <h3 class="narrative-heading">Real-Time Courtroom Access</h3>
             <p class="narrative-body">
-              Eliminates physical record dependency with real-time cloud synchronization, sub-second page loads without heavy framework overhead, and a two-step Recycle Bin recovery pipeline to prevent accidental data loss.
+              Reduces physical record dependency with real-time cloud synchronization, fast page loads without heavy framework overhead, and a two-step Recycle Bin recovery pipeline to help prevent accidental data loss.
             </p>
           </article>
         </div>
@@ -1310,7 +1329,7 @@
               <div class="feature-item">
                 <div class="feature-title"><span>■</span> Cloud Persistence with Firestore</div>
                 <p class="feature-desc">
-                  Real-time data storage ensuring zero risk of misplacing critical hearing updates across mobile and desktop sessions.
+                  Cloud-based data storage helps keep critical hearing updates accessible across mobile and desktop sessions, subject to proper security, synchronization, and backup configuration.
                 </p>
               </div>
               <div class="feature-item">
@@ -1330,7 +1349,7 @@
                 <div class="arch-node-title">Modular Vanilla ES6+</div>
                 <ul class="arch-node-list">
                   <li>dashboard.js (Cause-list metrics &amp; alerts)</li>
-                  <li>clients.js (CRUD &amp; relational filtering)</li>
+                  <li>clients.js (CRUD &amp; client-case filtering)</li>
                   <li>theme.js (Responsive UI &amp; state)</li>
                   <li>Zero heavy framework bundle overhead</li>
                 </ul>
@@ -1341,7 +1360,7 @@
                 <ul class="arch-node-list">
                   <li>Firebase Auth (Practitioner sessions)</li>
                   <li>Cloud Firestore (Real-time NoSQL sync)</li>
-                  <li>Relational indexing on clientId &amp; dates</li>
+                  <li>Document-based queries by clientId &amp; hearing date</li>
                   <li>Two-step soft-delete to recycleBin</li>
                 </ul>
               </div>
@@ -1370,11 +1389,11 @@
   },
   <span class="code-key">"cases"</span>: {
     <span class="code-key">"caseId"</span>: <span class="code-str">"CS_VNS_441"</span>,
-    <span class="code-key">"clientId"</span>: <span class="code-str">"CL_2026_089"</span>, <span class="code-comment">// Relational Index</span>
+    <span class="code-key">"clientId"</span>: <span class="code-str">"CL_2026_089"</span>, <span class="code-comment">// Linked Client Reference ID</span>
     <span class="code-key">"caseNumber"</span>: <span class="code-str">"OS/114/2026"</span>,
     <span class="code-key">"courtHall"</span>: <span class="code-str">"Civil Judge Senior Division, Hall 4"</span>,
     <span class="code-key">"legalStage"</span>: <span class="code-str">"Evidence / Cross-Examination"</span>,
-    <span class="code-key">"nextHearingDate"</span>: <span class="code-str">"2026-10-28"</span> <span class="code-comment">// Indexed for Daily Cause-List</span>
+    <span class="code-key">"nextHearingDate"</span>: <span class="code-str">"2026-10-28"</span> <span class="code-comment">// Queried for Daily Cause-List</span>
   },
   <span class="code-key">"recycleBin"</span>: {
     <span class="code-key">"deletedRecordId"</span>: <span class="code-str">"CS_VNS_441"</span>,
@@ -1443,6 +1462,14 @@
                   <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
                 </svg>
                 <span>yeashkumar.artec@gmail.com</span>
+              </a>
+
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span>View Resume (PDF)</span>
               </a>
             </div>
           </div>
@@ -1710,6 +1737,19 @@
                 advocate-diary-co.web.app ↗
               </a>
             </div>
+
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span class="dir-platform">Resume</span>
+              </span>
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                resume.pdf ↗
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1744,17 +1784,21 @@
       document.getElementById(panelId).classList.add('active');
     }
 
-    // 2. One-Click Email Copy
+    // 2. One-Click Email Copy (with Fallback)
     function copyEmail() {
       const email = 'yeashkumar.artec@gmail.com';
       const btn = document.getElementById('copy-btn');
-      navigator.clipboard.writeText(email).then(() => {
-        const originalText = btn.textContent;
-        btn.textContent = 'Copied!';
-        setTimeout(() => {
-          btn.textContent = originalText;
-        }, 2000);
-      });
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 2000);
+        });
+      } else {
+        window.location.href = 'mailto:' + email;
+      }
     }
 
     // 3. Subtle Scroll Reveal & Sticky Index Rail Active State
