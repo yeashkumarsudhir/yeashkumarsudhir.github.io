@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yeash Kumar Sudhir — BCA Student, Web & Software Developer</title>
+  <meta name="description" content="Portfolio of Yeash Kumar Sudhir — BCA student at MGKVP Varanasi developing practical web applications, cloud-backed software, and visual media. Founder of Advocate Diary." />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Yeash Kumar Sudhir — Web & Software Developer" />
+  <meta property="og:description" content="BCA student developing practical web apps and software, with a sharp eye for photography and video production. Founder of Advocate Diary." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Google Fonts: Instrument Serif, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       SWISS-EDITORIAL & ARCHIVAL TECHNICAL DESIGN SYSTEM
+       Palette: Warm Archival Paper (#F6F4EF), Carbon Ink (#141413), 
+                International Vermilion (#D9381E), Muted Stone (#575551)
+       ========================================================================== */
+    :root {
+      --bg-paper: #F6F4EF;
+      --bg-surface: #EFECE6;
+      --bg-code: #161615;
+      --ink-primary: #141413;
+      --ink-secondary: #52504C;
+      --ink-muted: #78756F;
+      --accent-vermilion: #D9381E;
+      --accent-vermilion-soft: rgba(217, 56, 30, 0.08);
+      --border-hairline: #DCD8D0;
+      --border-strong: #141413;
+
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --max-w: 1320px;
+      --rail-w: 220px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg-paper);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent-vermilion);
+      color: #ffffff;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent-vermilion);
+      outline-offset: 3px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Official Brand SVG Icon Utilities */
+    .brand-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.2s ease;
+    }
+
+    a:hover .brand-icon {
+      transform: scale(1.1);
+    }
+
+    .dir-platform-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(246, 244, 239, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0.95rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .brand-name {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .brand-coord {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-vermilion);
+    }
+
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--border-strong);
+      background: transparent;
+      color: var(--ink-primary);
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--accent-vermilion);
+      border-color: var(--accent-vermilion);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       STRUCTURAL SHELL (LEFT INDEX RAIL + MAIN COLUMN)
+       ========================================================================== */
+    .page-shell {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      border-left: 1px solid var(--border-hairline);
+      border-right: 1px solid var(--border-hairline);
+    }
+
+    .index-rail {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .page-shell {
+        grid-template-columns: var(--rail-w) 1fr;
+      }
+
+      .index-rail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid var(--border-hairline);
+        padding: 2.5rem 1.25rem;
+        position: sticky;
+        top: 57px;
+        height: calc(100vh - 57px);
+      }
+    }
+
+    .rail-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .rail-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .rail-item {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .rail-item::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: transparent;
+      border: 1px solid var(--ink-muted);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rail-item.active,
+    .rail-item:hover {
+      color: var(--ink-primary);
+      font-weight: 600;
+      transform: translateX(3px);
+    }
+
+    .rail-item.active::before {
+      background-color: var(--accent-vermilion);
+      border-color: var(--accent-vermilion);
+    }
+
+    .rail-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 1rem;
+    }
+
+    /* ==========================================================================
+       SECTION COMMON UTILITIES
+       ========================================================================== */
+    .section-block {
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 3.5rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-block {
+        padding: 5rem 3rem;
+      }
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-vermilion);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 1.5px;
+      background-color: var(--accent-vermilion);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 0.35rem 0.75rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--ink-primary);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-vermilion);
+      animation: pulseDot 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.88); }
+    }
+
+    .role-strip {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--ink-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.75rem;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.45fr 0.85fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.35rem, 4.8vw, 4.15rem);
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      color: var(--ink-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-vermilion);
+    }
+
+    .hero-subcopy {
+      font-size: 1.0625rem;
+      color: var(--ink-secondary);
+      max-width: 58ch;
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.9rem 1.4rem;
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+      border: 1px solid var(--ink-primary);
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-vermilion);
+      border-color: var(--accent-vermilion);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.9rem 1.3rem;
+      background-color: transparent;
+      color: var(--ink-primary);
+      border: 1px solid var(--border-strong);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-surface);
+    }
+
+    .hero-quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .quick-social {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .quick-social:hover {
+      border-color: var(--border-strong);
+      color: var(--accent-vermilion);
+      background-color: #ffffff;
+    }
+
+    /* Profile Portrait Frame */
+    .portrait-card {
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-surface);
+      padding: 0.85rem;
+      position: relative;
+    }
+
+    .portrait-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 4.6;
+      background-color: #E5E0D5;
+      overflow: hidden;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: contrast(1.03);
+      transition: transform 0.5s ease;
+    }
+
+    .portrait-card:hover .portrait-img {
+      transform: scale(1.02);
+    }
+
+    .portrait-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      background-color: var(--bg-surface);
+      color: var(--ink-secondary);
+    }
+
+    .portrait-fallback-code {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-vermilion);
+      margin-bottom: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      background: var(--accent-vermilion-soft);
+      border: 1px solid var(--accent-vermilion);
+    }
+
+    .portrait-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-secondary);
+    }
+
+    /* ==========================================================================
+       01 / SELECTED WORK — FLAGSHIP CASE STUDY (ADVOCATE DIARY)
+       ========================================================================== */
+    .case-header-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 860px) {
+      .case-header-grid {
+        grid-template-columns: 1.3fr 0.7fr;
+        align-items: end;
+      }
+    }
+
+    .case-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .case-tagline {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      max-width: 60ch;
+    }
+
+    .case-links-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 860px) {
+      .case-links-box {
+        justify-content: flex-end;
+      }
+    }
+
+    /* Project Metadata Ledger */
+    .case-ledger {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-hairline);
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .case-ledger {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .ledger-cell {
+      padding: 1rem 0.75rem;
+      border-right: 1px solid var(--border-hairline);
+    }
+
+    .ledger-cell:last-child {
+      border-right: none;
+    }
+
+    .ledger-key {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .ledger-val {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+    }
+
+    /* Problem / Contribution / Architecture 3-Column Split */
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2.75rem;
+    }
+
+    @media (min-width: 900px) {
+      .narrative-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .narrative-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 1.5rem;
+    }
+
+    .narrative-step {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-vermilion);
+      margin-bottom: 0.6rem;
+    }
+
+    .narrative-heading {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .narrative-body {
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    /* Interactive Blueprint / Features Showcase Box */
+    .blueprint-container {
+      border: 1px solid var(--border-strong);
+      background-color: #ffffff;
+      margin-bottom: 2.25rem;
+    }
+
+    .blueprint-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 0.6rem 1rem;
+      gap: 0.75rem;
+    }
+
+    .blueprint-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tab-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink-primary);
+    }
+
+    .tab-btn.active {
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+      border-color: var(--ink-primary);
+    }
+
+    .toolbar-url {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 1.75rem;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Features Grid inside Tab 1 */
+    .features-matrix {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .features-matrix {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .feature-item {
+      border: 1px solid var(--border-hairline);
+      padding: 1.15rem;
+      background-color: var(--bg-paper);
+    }
+
+    .feature-title {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--ink-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-title span {
+      color: var(--accent-vermilion);
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      line-height: 1.55;
+    }
+
+    /* Architecture Diagram inside Tab 2 */
+    .arch-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 800px) {
+      .arch-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .arch-node {
+      border: 1px solid var(--border-strong);
+      padding: 1.25rem;
+      background-color: var(--bg-paper);
+    }
+
+    .arch-node-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent-vermilion);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .arch-node-title {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .arch-node-list li {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed var(--border-hairline);
+    }
+
+    /* Code View inside Tab 3 */
+    .code-window {
+      background-color: var(--bg-code);
+      color: #E5E2DC;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.65;
+    }
+
+    .code-comment { color: #7C7972; }
+    .code-key { color: #F07158; }
+    .code-str { color: #A6CC70; }
+
+    /* Tech Stack Tag Row */
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+    }
+
+    .stack-chip {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 0.3rem 0.65rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--ink-primary);
+    }
+
+    /* ==========================================================================
+       02 / ABOUT & ACADEMIC LEDGER
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .about-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+      line-height: 1.22;
+      margin-bottom: 1.5rem;
+      color: var(--ink-primary);
+    }
+
+    .about-prose p {
+      color: var(--ink-secondary);
+      margin-bottom: 1.15rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .credential-table {
+      border-top: 1px solid var(--border-strong);
+    }
+
+    .cred-row {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .cred-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-vermilion);
+    }
+
+    .cred-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--ink-primary);
+    }
+
+    .cred-inst {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+    }
+
+    /* ==========================================================================
+       03 / CAPABILITIES & TOOLS
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .skill-column {
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-surface);
+      padding: 1.6rem;
+    }
+
+    .skill-col-header {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .skill-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.94rem;
+    }
+
+    .skill-name {
+      font-weight: 500;
+      color: var(--ink-primary);
+    }
+
+    .skill-level {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-secondary);
+    }
+
+    /* ==========================================================================
+       04 / CONTACT SECTION
+       ========================================================================== */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (min-width: 860px) {
+      .contact-layout {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .contact-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      color: var(--ink-secondary);
+      font-size: 1.02rem;
+      max-width: 50ch;
+      margin-bottom: 2rem;
+    }
+
+    .email-box {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      margin-bottom: 1.5rem;
+    }
+
+    .email-address {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .copy-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: var(--accent-vermilion);
+    }
+
+    .directory-card {
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-surface);
+      padding: 1.5rem;
+    }
+
+    .dir-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .dir-row:last-child {
+      border-bottom: none;
+    }
+
+    .dir-platform {
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    .dir-handle {
+      color: var(--ink-primary);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .dir-handle:hover {
+      color: var(--accent-vermilion);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    /* Subtle Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================= TOP HEADER ======================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand-wordmark">
+        <span class="brand-name">Yeash Kumar Sudhir</span>
+        <span class="brand-coord">Varanasi, IN</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary Navigation">
+        <a href="#work" class="nav-link">01 / Work</a>
+        <a href="#about" class="nav-link">02 / About</a>
+        <a href="#capabilities" class="nav-link">03 / Skills</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================= MAIN STRUCTURAL SHELL ======================= -->
+  <div class="page-shell" id="top">
+
+    <!-- LEFT STICKY INDEX RAIL -->
+    <aside class="index-rail" aria-label="Section Index">
+      <div class="rail-menu">
+        <div class="rail-label">Directory</div>
+        <a href="#hero" class="rail-item active" data-section="hero">00 / Overview</a>
+        <a href="#work" class="rail-item" data-section="work">01 / Selected Work</a>
+        <a href="#about" class="rail-item" data-section="about">02 / About &amp; Edu</a>
+        <a href="#capabilities" class="rail-item" data-section="capabilities">03 / Capabilities</a>
+        <a href="#contact" class="rail-item" data-section="contact">04 / Contact</a>
+      </div>
+
+      <div class="rail-meta">
+        <div>BCA (2024–2027)</div>
+        <div>MGKVP University</div>
+        <div style="margin-top: 0.4rem; color: var(--accent-vermilion);">LEARN · GROW · CONTRIBUTE</div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main>
+
+      <!-- ======================= 00 / HERO SECTION ======================= -->
+      <section class="section-block" id="hero">
+        <div class="hero-top-bar">
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Open for Internships &amp; Freelance Projects</span>
+          </div>
+          <div class="role-strip">
+            BCA Student · Web &amp; Software Developer · Photo &amp; Video Creator
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <!-- Left Column: Positioning & CTAs -->
+          <div>
+            <h1 class="hero-headline">
+              BCA student developing <em>practical web apps</em> and software, with a sharp eye for photography and video production.
+            </h1>
+
+            <p class="hero-subcopy">
+              I’m Yeash Kumar Sudhir, based in Varanasi. I build cloud-backed web applications like <strong>Advocate Diary</strong> using JavaScript and Google Firebase, alongside a strong creative foundation in photography and video editing.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#work" class="btn-primary">
+                <span>Inspect Advocate Diary</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="https://advocate-diary-co.web.app" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <!-- Official Firebase Icon -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z" fill="#FFCA28"/>
+                </svg>
+                <span>Live App</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="#contact" class="btn-secondary">
+                <span>Contact Details</span>
+              </a>
+            </div>
+
+            <!-- Social Links with Official Brand Logos -->
+            <div class="hero-quick-links">
+              <a href="https://github.com/yeashkumarsudhir" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <!-- Official GitHub Logo -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                <span>GitHub</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/yeashkumar" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <!-- Official LinkedIn Logo -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+
+              <a href="https://instagram.com/agp_offical" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <!-- Official Instagram Logo -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#E4405F" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+
+              <a href="https://youtube.com/@agp_offical" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <!-- Official YouTube Logo -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Profile Photo (profile.jpeg) -->
+          <div class="portrait-card">
+            <div class="portrait-frame">
+              <img 
+                src="profile.jpeg" 
+                alt="Yeash Kumar Sudhir" 
+                class="portrait-img"
+                onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
+              />
+              <!-- Fallback shown only if profile.jpeg is not yet placed in folder -->
+              <div id="photo-fallback" class="portrait-fallback">
+                <span class="portrait-fallback-code">profile.jpeg</span>
+                <p style="font-size: 0.84rem;">Apni photo ko <strong>profile.jpeg</strong> naam se apne VS Code wale folder me save karein, wo yahan dikhne lagegi.</p>
+              </div>
+            </div>
+            <div class="portrait-caption">
+              <span>YEASH KUMAR SUDHIR</span>
+              <span>VARANASI · 221002</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= 01 / SELECTED WORK (ADVOCATE DIARY) ======================= -->
+      <section class="section-block reveal" id="work">
+        <div class="section-kicker">01 / Selected Work — Flagship Case Study</div>
+
+        <div class="case-header-grid">
+          <div>
+            <h2 class="case-title">Advocate Diary — Digital Legal Practice Management Platform</h2>
+            <p class="case-tagline">
+              A responsive, cloud-native web solution to manage court hearings, client briefs, and daily cause-lists for legal professionals.
+            </p>
+          </div>
+
+          <div class="case-links-box">
+            <a href="https://advocate-diary-co.web.app" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <!-- Official Firebase Icon -->
+              <svg class="brand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z" fill="#FFCA28"/>
+              </svg>
+              <span>Launch Live App</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://github.com/yeashkumarsudhir/Advocate-Diary" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <!-- Official GitHub Logo -->
+              <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+              <span>GitHub Repo</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Metadata Ledger -->
+        <div class="case-ledger">
+          <div class="ledger-cell">
+            <div class="ledger-key">Role</div>
+            <div class="ledger-val">Founder &amp; Full-Stack Developer</div>
+          </div>
+          <div class="ledger-cell">
+            <div class="ledger-key">Category</div>
+            <div class="ledger-val">Cloud Web Application</div>
+          </div>
+          <div class="ledger-cell">
+            <div class="ledger-key">Core Stack</div>
+            <div class="ledger-val">Vanilla JS (ES6+) + Firestore</div>
+          </div>
+          <div class="ledger-cell">
+            <div class="ledger-key">Production Status</div>
+            <div class="ledger-val" style="color: var(--accent-vermilion);">Live on Firebase Hosting</div>
+          </div>
+        </div>
+
+        <!-- 3-Column Problem / Solution / Outcome Breakdown -->
+        <div class="narrative-grid">
+          <article class="narrative-card">
+            <div class="narrative-step">01 / The Problem</div>
+            <h3 class="narrative-heading">Paper Registers &amp; Missed Dates</h3>
+            <p class="narrative-body">
+              Practicing advocates rely on physical legal registers and paper diaries that are slow to search inside courtrooms, vulnerable to loss, and make tracking daily cause-lists across multiple court halls error-prone.
+            </p>
+          </article>
+
+          <article class="narrative-card">
+            <div class="narrative-step">02 / What I Built</div>
+            <h3 class="narrative-heading">Modular JS + Cloud Firestore</h3>
+            <p class="narrative-body">
+              Designed and deployed a tailored web platform with modular script loading (<code>dashboard.js</code>, <code>clients.js</code>, <code>theme.js</code>), structured NoSQL collections (<code>clients</code>, <code>cases</code>, <code>recycleBin</code>), and Firebase Auth.
+            </p>
+          </article>
+
+          <article class="narrative-card">
+            <div class="narrative-step">03 / The Impact</div>
+            <h3 class="narrative-heading">Real-Time Courtroom Access</h3>
+            <p class="narrative-body">
+              Eliminates physical record dependency with real-time cloud synchronization, sub-second page loads without heavy framework overhead, and a two-step Recycle Bin recovery pipeline to prevent accidental data loss.
+            </p>
+          </article>
+        </div>
+
+        <!-- Interactive Blueprint & Technical Inspection Box -->
+        <div class="blueprint-container">
+          <div class="blueprint-toolbar">
+            <div class="blueprint-tabs" role="tablist" aria-label="Advocate Diary Technical Details">
+              <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchTab(event, 'tab-features')">
+                01. Key Highlights &amp; Features
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab(event, 'tab-arch')">
+                02. Technical Architecture
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab(event, 'tab-schema')">
+                03. Firestore NoSQL Schema
+              </button>
+            </div>
+            <span class="toolbar-url">advocate-diary-co.web.app</span>
+          </div>
+
+          <!-- TAB 1: Key Features -->
+          <div id="tab-features" class="tab-panel active" role="tabpanel">
+            <div class="features-matrix">
+              <div class="feature-item">
+                <div class="feature-title"><span>■</span> Centralized Case &amp; Client Management</div>
+                <p class="feature-desc">
+                  Instant onboarding of clients with case numbers, court hall assignments, judge details, and active legal stages.
+                </p>
+              </div>
+              <div class="feature-item">
+                <div class="feature-title"><span>■</span> Daily Cause-List &amp; Dashboard</div>
+                <p class="feature-desc">
+                  Dynamic dashboard displaying active litigations, today's court hearings, and upcoming schedules at a single glance.
+                </p>
+              </div>
+              <div class="feature-item">
+                <div class="feature-title"><span>■</span> Cloud Persistence with Firestore</div>
+                <p class="feature-desc">
+                  Real-time data storage ensuring zero risk of misplacing critical hearing updates across mobile and desktop sessions.
+                </p>
+              </div>
+              <div class="feature-item">
+                <div class="feature-title"><span>■</span> Recycle Bin &amp; Safe Recovery</div>
+                <p class="feature-desc">
+                  Built-in two-step deletion pipeline allowing advocates to restore accidentally deleted case files effortlessly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Technical Architecture -->
+          <div id="tab-arch" class="tab-panel" role="tabpanel">
+            <div class="arch-flow">
+              <div class="arch-node">
+                <div class="arch-node-tag">Layer 01 · Client Engine</div>
+                <div class="arch-node-title">Modular Vanilla ES6+</div>
+                <ul class="arch-node-list">
+                  <li>dashboard.js (Cause-list metrics &amp; alerts)</li>
+                  <li>clients.js (CRUD &amp; relational filtering)</li>
+                  <li>theme.js (Responsive UI &amp; state)</li>
+                  <li>Zero heavy framework bundle overhead</li>
+                </ul>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-tag">Layer 02 · Backend &amp; Cloud</div>
+                <div class="arch-node-title">Google Firebase Suite</div>
+                <ul class="arch-node-list">
+                  <li>Firebase Auth (Practitioner sessions)</li>
+                  <li>Cloud Firestore (Real-time NoSQL sync)</li>
+                  <li>Relational indexing on clientId &amp; dates</li>
+                  <li>Two-step soft-delete to recycleBin</li>
+                </ul>
+              </div>
+              <div class="arch-node">
+                <div class="arch-node-tag">Layer 03 · Edge Delivery</div>
+                <div class="arch-node-title">Deployment &amp; Security</div>
+                <ul class="arch-node-list">
+                  <li>Hosted on Firebase CDN edge servers</li>
+                  <li>Strict SSL/TLS encrypted transport</li>
+                  <li>Mobile-first courtroom accessibility</li>
+                  <li>Git &amp; GitHub version control workflow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Firestore Schema -->
+          <div id="tab-schema" class="tab-panel" role="tabpanel">
+            <pre class="code-window"><code><span class="code-comment">// Structured Firestore NoSQL Collections — Advocate Diary</span>
+{
+  <span class="code-key">"clients"</span>: {
+    <span class="code-key">"clientId"</span>: <span class="code-str">"CL_2026_089"</span>,
+    <span class="code-key">"fullName"</span>: <span class="code-str">"R. K. Sharma"</span>,
+    <span class="code-key">"phone"</span>: <span class="code-str">"+91-XXXXXXXXXX"</span>,
+    <span class="code-key">"createdAt"</span>: <span class="code-str">"Timestamp"</span>
+  },
+  <span class="code-key">"cases"</span>: {
+    <span class="code-key">"caseId"</span>: <span class="code-str">"CS_VNS_441"</span>,
+    <span class="code-key">"clientId"</span>: <span class="code-str">"CL_2026_089"</span>, <span class="code-comment">// Relational Index</span>
+    <span class="code-key">"caseNumber"</span>: <span class="code-str">"OS/114/2026"</span>,
+    <span class="code-key">"courtHall"</span>: <span class="code-str">"Civil Judge Senior Division, Hall 4"</span>,
+    <span class="code-key">"legalStage"</span>: <span class="code-str">"Evidence / Cross-Examination"</span>,
+    <span class="code-key">"nextHearingDate"</span>: <span class="code-str">"2026-10-28"</span> <span class="code-comment">// Indexed for Daily Cause-List</span>
+  },
+  <span class="code-key">"recycleBin"</span>: {
+    <span class="code-key">"deletedRecordId"</span>: <span class="code-str">"CS_VNS_441"</span>,
+    <span class="code-key">"originCollection"</span>: <span class="code-str">"cases"</span>,
+    <span class="code-key">"recoverable"</span>: <span class="code-key">true</span>
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Tech Stack Badges -->
+        <div class="stack-row" aria-label="Technologies used in Advocate Diary">
+          <span class="stack-chip">HTML5</span>
+          <span class="stack-chip">CSS3</span>
+          <span class="stack-chip">JavaScript (Vanilla ES6+)</span>
+          <span class="stack-chip">Responsive UI</span>
+          <span class="stack-chip">Google Firebase</span>
+          <span class="stack-chip">Cloud Firestore</span>
+          <span class="stack-chip">Firebase Auth</span>
+          <span class="stack-chip">Firebase Hosting</span>
+          <span class="stack-chip">Git &amp; GitHub</span>
+          <span class="stack-chip">VS Code</span>
+          <span class="stack-chip">PowerShell</span>
+        </div>
+      </section>
+
+      <!-- ======================= 02 / ABOUT & EDUCATION ======================= -->
+      <section class="section-block reveal" id="about">
+        <div class="section-kicker">02 / About &amp; Academic Background</div>
+
+        <div class="about-grid">
+          <!-- Left Column: First-Person Bio -->
+          <div class="about-prose">
+            <h2 class="about-lead">
+              I enjoy turning everyday operational problems into clean, working software—and framing stories through a camera lens.
+            </h2>
+            <p>
+              I am currently pursuing my <strong>Bachelor of Computer Applications (BCA, 5th Semester)</strong> at <strong>Mahatma Gandhi Kashi Vidyapith University (MGKVP)</strong> in Varanasi. Rather than keeping code strictly inside classroom assignments, I built and shipped <em>Advocate Diary</em> to solve how legal practitioners track their daily court hearings and client records.
+            </p>
+            <p>
+              Alongside software development, I have a strong personal interest in photography, video creation, and visual storytelling—which started from my early days of creating and editing gaming content on YouTube. I also recently completed a Basic Russian Language certification under the Russian Ministry of Education programme in India, allowing me to communicate across Hindi, English, and basic Russian.
+            </p>
+            <p>
+              I am actively looking for <strong>IT &amp; Software Development Internships</strong> and freelance projects where I can contribute to production codebases, learn fast, and deliver reliable work.
+            </p>
+
+            <!-- Official Brand Links Strip inside About Section -->
+            <div class="hero-quick-links" style="margin-top: 1.5rem;">
+              <a href="https://github.com/yeashkumarsudhir" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                <span>github.com/yeashkumarsudhir</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/yeashkumar" target="_blank" rel="noopener noreferrer" class="quick-social">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>linkedin.com/in/yeashkumar</span>
+              </a>
+
+              <a href="mailto:yeashkumar.artec@gmail.com" class="quick-social">
+                <!-- Official Gmail Icon -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true">
+                  <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                </svg>
+                <span>yeashkumar.artec@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Education & Certification Ledger -->
+          <div>
+            <div class="credential-table">
+              <div class="cred-row">
+                <div class="cred-meta">
+                  <span>EDUCATION</span>
+                  <span>2024 – 2027 (5th Sem)</span>
+                </div>
+                <div class="cred-title">Bachelor of Computer Applications (BCA)</div>
+                <div class="cred-inst">Mahatma Gandhi Kashi Vidyapith University (MGKVP), Varanasi</div>
+              </div>
+
+              <div class="cred-row">
+                <div class="cred-meta">
+                  <span>CERTIFICATION</span>
+                  <span>19 SEPT 2026</span>
+                </div>
+                <div class="cred-title">Basic Russian Language Course Certificate</div>
+                <div class="cred-inst">Center for Open Education in Russian (Russian Ministry of Education Programme in India)</div>
+              </div>
+
+              <div class="cred-row">
+                <div class="cred-meta">
+                  <span>INTERMEDIATE (CLASS 12TH)</span>
+                  <span>2023 – 2024</span>
+                </div>
+                <div class="cred-title">UP Board — 65.60%</div>
+                <div class="cred-inst">Government City Inter College, Varanasi</div>
+              </div>
+
+              <div class="cred-row">
+                <div class="cred-meta">
+                  <span>MATRICULATION (CLASS 10TH)</span>
+                  <span>2021 – 2022</span>
+                </div>
+                <div class="cred-title">UP Board — 74.33%</div>
+                <div class="cred-inst">Government City Inter College, Varanasi</div>
+              </div>
+
+              <div class="cred-row">
+                <div class="cred-meta">
+                  <span>SPOKEN LANGUAGES</span>
+                  <span>TRILINGUAL</span>
+                </div>
+                <div class="cred-title">Hindi (Native) · English (Intermediate) · Russian (Basic)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= 03 / CAPABILITIES & SKILLS ======================= -->
+      <section class="section-block reveal" id="capabilities">
+        <div class="section-kicker">03 / Capabilities &amp; Technical Stack</div>
+
+        <div class="skills-grid">
+          <!-- Column 1: Programming & Web -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Programming &amp; Web Development</span>
+              <span>01</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">HTML5, CSS3 &amp; Responsive UI</span>
+                <span class="skill-level">Production</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">JavaScript (Vanilla ES6+)</span>
+                <span class="skill-level">Modular Architecture</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">C Programming</span>
+                <span class="skill-level">Basic to Intermediate</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">Foundational</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Computer Fundamentals &amp; Logic</span>
+                <span class="skill-level">Core BCA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Cloud, Backend & Dev Tools -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Cloud, Database &amp; Dev Workflow</span>
+              <span>02</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">Google Firebase (Cloud Firestore)</span>
+                <span class="skill-level">NoSQL &amp; Real-Time Sync</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Firebase Hosting &amp; Authentication</span>
+                <span class="skill-level">Edge Deployment</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Git, GitHub &amp; PowerShell</span>
+                <span class="skill-level">Version Control</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">VS Code</span>
+                <span class="skill-level">Primary Environment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: AI Productivity & Prompting -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>AI-Assisted Engineering &amp; Research</span>
+              <span>03</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">GitHub Copilot</span>
+                <span class="skill-level">Code Acceleration</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">ChatGPT</span>
+                <span class="skill-level">Prompting &amp; Productivity</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Google Gemini &amp; Claude</span>
+                <span class="skill-level">Research &amp; Debugging</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Internet &amp; Technical Research</span>
+                <span class="skill-level">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 4: Creative Direction & Core Strengths -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Visual Media &amp; Professional Strengths</span>
+              <span>04</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">Photography &amp; Video Production</span>
+                <span class="skill-level">Visual Storytelling</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Quick Learner &amp; Self-Motivated</span>
+                <span class="skill-level">Adaptable</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Team Collaboration &amp; Communication</span>
+                <span class="skill-level">Project Execution</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Time Management</span>
+                <span class="skill-level">Disciplined Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= 04 / CONTACT ======================= -->
+      <section class="section-block reveal" id="contact">
+        <div class="section-kicker">04 / Contact &amp; Channels</div>
+
+        <div class="contact-layout">
+          <div>
+            <h2 class="contact-heading">
+              Available for IT internships, web projects, and creative collaborations.
+            </h2>
+            <p class="contact-sub">
+              Whether you need a cloud-backed web application, an internship contributor in Varanasi or remote, or want to discuss a project—reach out directly via email or phone.
+            </p>
+
+            <div class="email-box">
+              <a href="mailto:yeashkumar.artec@gmail.com" class="email-address" id="email-text">
+                <!-- Official Gmail Icon -->
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true">
+                  <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                </svg>
+                <span>yeashkumar.artec@gmail.com</span>
+              </a>
+              <button type="button" class="copy-btn" onclick="copyEmail()" id="copy-btn">
+                Copy Email
+              </button>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-secondary); display: flex; align-items: center; gap: 0.5rem;">
+              <!-- Official WhatsApp / Phone Icon -->
+              <svg class="brand-icon" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.53 5.86L0 24l6.335-1.652c1.7.924 3.646 1.452 5.696 1.452 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+              </svg>
+              <span>Phone / WhatsApp:</span>
+              <a href="tel:+919628468488" style="color: var(--ink-primary); font-weight: 600;">+91 9628468488</a>
+            </div>
+          </div>
+
+          <!-- Direct Social & Profile Directory with Official Brand Logos -->
+          <div class="directory-card">
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                <span class="dir-platform">GitHub</span>
+              </span>
+              <a href="https://github.com/yeashkumarsudhir" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                @yeashkumarsudhir ↗
+              </a>
+            </div>
+
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span class="dir-platform">LinkedIn</span>
+              </span>
+              <a href="https://www.linkedin.com/in/yeashkumar" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                in/yeashkumar ↗
+              </a>
+            </div>
+
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#E4405F" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span class="dir-platform">Instagram</span>
+              </span>
+              <a href="https://instagram.com/agp_offical" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                @agp_offical ↗
+              </a>
+            </div>
+
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span class="dir-platform">YouTube</span>
+              </span>
+              <a href="https://youtube.com/@agp_offical" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                @agp_offical ↗
+              </a>
+            </div>
+
+            <div class="dir-row">
+              <span class="dir-platform-wrap">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z" fill="#FFCA28"/>
+                </svg>
+                <span class="dir-platform">Live Project</span>
+              </span>
+              <a href="https://advocate-diary-co.web.app" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                advocate-diary-co.web.app ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div>© 2026 Yeash Kumar Sudhir. Handcrafted in Varanasi, India.</div>
+    <div>LEARN · GROW · CONTRIBUTE</div>
+  </footer>
+
+  <!-- ======================= INTERACTIVE SCRIPTS ======================= -->
+  <script>
+    // 1. Interactive Blueprint Tabs for Advocate Diary
+    function switchTab(event, panelId) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      panels.forEach(panel => {
+        panel.classList.remove('active');
+      });
+
+      event.currentTarget.classList.add('active');
+      event.currentTarget.setAttribute('aria-selected', 'true');
+      document.getElementById(panelId).classList.add('active');
+    }
+
+    // 2. One-Click Email Copy
+    function copyEmail() {
+      const email = 'yeashkumar.artec@gmail.com';
+      const btn = document.getElementById('copy-btn');
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
+    }
+
+    // 3. Subtle Scroll Reveal & Sticky Index Rail Active State
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const sections = document.querySelectorAll('main section[id]');
+      const railLinks = document.querySelectorAll('.rail-item');
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach(el => revealObserver.observe(el));
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            railLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('data-section') === id);
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -55% 0px' });
+
+      sections.forEach(sec => navObserver.observe(sec));
+    });
+  </script>
+</body>
+</html>
