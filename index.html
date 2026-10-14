@@ -42,6 +42,13 @@
 
       --max-w: 1320px;
       --rail-w: 220px;
+      --header-offset: 120px;
+    }
+
+    @media (min-width: 768px) {
+      :root {
+        --header-offset: 72px;
+      }
     }
 
     *, *::before, *::after {
@@ -56,6 +63,7 @@
       font-family: var(--font-sans);
       font-size: 16px;
       line-height: 1.6;
+      scroll-padding-top: var(--header-offset);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -105,13 +113,13 @@
     }
 
     /* ==========================================================================
-       TOP NAVIGATION BAR
+       TOP NAVIGATION BAR (Compact on Mobile, Spacious on Desktop)
        ========================================================================== */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background-color: rgba(246, 244, 239, 0.92);
+      background-color: rgba(246, 244, 239, 0.94);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-hairline);
     }
@@ -119,39 +127,55 @@
     .header-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0.95rem 1.5rem;
+      padding: 0.65rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.75rem 1rem;
+      gap: 0.45rem 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .header-inner {
+        padding: 0.95rem 1.5rem;
+        gap: 0.75rem 1rem;
+      }
     }
 
     .brand-wordmark {
       display: flex;
       align-items: baseline;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
 
     .brand-name {
       font-family: var(--font-mono);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.82rem;
       letter-spacing: -0.02em;
       text-transform: uppercase;
     }
 
     .brand-coord {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--ink-muted);
+    }
+
+    @media (min-width: 768px) {
+      .brand-name {
+        font-size: 0.875rem;
+      }
+      .brand-coord {
+        font-size: 0.75rem;
+      }
     }
 
     .header-nav {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.85rem 1.25rem;
+      gap: 0.5rem 0.95rem;
     }
 
     @media (min-width: 768px) {
@@ -162,7 +186,7 @@
 
     .nav-link {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.73rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--ink-secondary);
@@ -175,14 +199,24 @@
 
     .nav-cta {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.73rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      padding: 0.45rem 0.9rem;
+      padding: 0.32rem 0.7rem;
       border: 1px solid var(--border-strong);
       background: transparent;
       color: var(--ink-primary);
       transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    @media (min-width: 768px) {
+      .nav-link,
+      .nav-cta {
+        font-size: 0.78rem;
+      }
+      .nav-cta {
+        padding: 0.45rem 0.9rem;
+      }
     }
 
     .nav-cta:hover {
@@ -281,11 +315,12 @@
     }
 
     /* ==========================================================================
-       SECTION COMMON UTILITIES
+       SECTION COMMON UTILITIES (With Dynamic Scroll Margin Offset)
        ========================================================================== */
     .section-block {
       border-bottom: 1px solid var(--border-hairline);
-      padding: 3.5rem 1.5rem;
+      padding: 3rem 1.25rem;
+      scroll-margin-top: var(--header-offset);
     }
 
     @media (min-width: 768px) {
@@ -1071,7 +1106,7 @@
 <body>
 
   <!-- ======================= TOP HEADER ======================= -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="#top" class="brand-wordmark">
         <span class="brand-name">Yeash Kumar Sudhir</span>
@@ -1765,7 +1800,18 @@
 
   <!-- ======================= INTERACTIVE SCRIPTS ======================= -->
   <script>
-    // 1. Interactive Blueprint Tabs for Advocate Diary
+    // 1. Dynamic Sticky Header Offset Calculation (Fixes mobile multi-line header overlap)
+    function updateHeaderOffset() {
+      const header = document.getElementById('site-header');
+      if (header) {
+        const height = header.offsetHeight;
+        document.documentElement.style.setProperty('--header-offset', (height + 12) + 'px');
+      }
+    }
+    window.addEventListener('load', updateHeaderOffset);
+    window.addEventListener('resize', updateHeaderOffset);
+
+    // 2. Interactive Blueprint Tabs for Advocate Diary
     function switchTab(event, panelId) {
       const buttons = document.querySelectorAll('.tab-btn');
       const panels = document.querySelectorAll('.tab-panel');
@@ -1784,7 +1830,7 @@
       document.getElementById(panelId).classList.add('active');
     }
 
-    // 2. One-Click Email Copy (with Fallback)
+    // 3. One-Click Email Copy (with Fallback)
     function copyEmail() {
       const email = 'yeashkumar.artec@gmail.com';
       const btn = document.getElementById('copy-btn');
@@ -1801,8 +1847,10 @@
       }
     }
 
-    // 3. Subtle Scroll Reveal & Sticky Index Rail Active State
+    // 4. Subtle Scroll Reveal & Sticky Index Rail Active State
     document.addEventListener('DOMContentLoaded', () => {
+      updateHeaderOffset();
+
       const reveals = document.querySelectorAll('.reveal');
       const sections = document.querySelectorAll('main section[id]');
       const railLinks = document.querySelectorAll('.rail-item');
