@@ -221,6 +221,7 @@
       letter-spacing: 0.04em;
       color: var(--ink-secondary);
       transition: color 0.2s ease;
+      cursor: pointer;
     }
 
     .nav-link:hover {
@@ -289,7 +290,6 @@
       display: block;
     }
 
-    /* Show Moon in Light Mode, Show Sun in Dark Mode */
     .icon-sun {
       display: none;
     }
@@ -410,7 +410,7 @@
     }
 
     /* ==========================================================================
-       SECTION COMMON UTILITIES (With Dynamic Scroll Margin Offset)
+       SECTION COMMON UTILITIES
        ========================================================================== */
     .section-block {
       border-bottom: 1px solid var(--border-hairline);
@@ -571,6 +571,7 @@
       color: var(--ink-primary);
       border: 1px solid var(--border-strong);
       transition: background-color 0.2s ease;
+      cursor: pointer;
     }
 
     .btn-secondary:hover {
@@ -1291,6 +1292,84 @@
     }
 
     /* ==========================================================================
+       AUTO-GENERATE RESUME MODAL VIEWER
+       ========================================================================== */
+    .resume-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+
+    .resume-modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .resume-sheet {
+      background: #FFFFFF;
+      color: #141413;
+      width: 100%;
+      max-width: 820px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .resume-close-bar {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .resume-action-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      background: #141413;
+      color: #F6F4EF;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .resume-action-btn:hover {
+      background: #D9381E;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .resume-modal, .resume-modal * {
+        visibility: visible;
+      }
+      .resume-modal {
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        padding: 0;
+      }
+      .resume-sheet {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 1rem;
+      }
+      .resume-close-bar {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
        05 / CONTACT SECTION
        ========================================================================== */
     .contact-layout {
@@ -1439,7 +1518,7 @@
         <a href="#about" class="nav-link">02 / About</a>
         <a href="#capabilities" class="nav-link">03 / Skills</a>
         <a href="#certifications" class="nav-link">04 / Certificates</a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume PDF ↗</a>
+        <a role="button" onclick="openResumeModal()" class="nav-link" style="color: var(--accent-vermilion); font-weight: 600;">Auto-Resume ↗</a>
         <a href="#contact" class="nav-cta">Get in Touch</a>
 
         <!-- Manual Dark / Light Theme Switcher Button -->
@@ -1465,6 +1544,97 @@
       </nav>
     </div>
   </header>
+
+  <!-- ======================= AUTO-GENERATE RESUME MODAL ======================= -->
+  <div class="resume-modal" id="resume-modal" role="dialog" aria-modal="true" aria-label="Auto-Generated Live Resume">
+    <div class="resume-sheet">
+      <div class="resume-close-bar">
+        <button type="button" class="resume-action-btn" onclick="printResume()">Print / Save PDF</button>
+        <button type="button" class="resume-action-btn" onclick="closeResumeModal()" style="background: #D9381E;">Close ✕</button>
+      </div>
+
+      <!-- ATS-Friendly Resume Content -->
+      <div style="border-bottom: 2px solid #141413; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+        <h1 style="font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; color: #141413; margin-bottom: 0.2rem;">Yeash Kumar Sudhir</h1>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #52504C;">
+          BCA Student &amp; Full-Stack Web Developer · Varanasi, UP, India · +91 9628468488 · yeashkumar.artec@gmail.com
+        </p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #D9381E; margin-top: 0.3rem;">
+          Portfolio: <a href="https://yeashkumarsudhir.github.io" target="_blank">yeashkumarsudhir.github.io</a> | GitHub: <a href="https://github.com/yeashkumarsudhir" target="_blank">@yeashkumarsudhir</a> | LinkedIn: <a href="https://www.linkedin.com/in/yeashkumar" target="_blank">in/yeashkumar</a>
+        </p>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Professional Summary</h2>
+        <p style="font-size: 0.92rem; color: #333332; line-height: 1.6;">
+          BCA 5th-semester student at MGKVP University, Varanasi, with hands-on experience in building cloud-backed web applications using JavaScript and Google Firebase. Recognized for practical achievements including founding <em>Advocate Diary</em> and completing industry job simulations in GenAI Data Analytics and Cybersecurity with TATA (via Forage). Seeking IT and Software Development internships to contribute robust code.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Key Flagship Project</h2>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+          <strong style="font-size: 0.98rem; color: #141413;">Advocate Diary — Digital Legal Practice Management Platform</strong>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: #D9381E;">Live on Firebase Hosting</span>
+        </div>
+        <p style="font-size: 0.88rem; color: #52504C; margin-bottom: 0.4rem;">Tech Stack: Vanilla JavaScript (ES6+), HTML5, CSS3, Google Cloud Firestore, Firebase Auth.</p>
+        <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #333332; line-height: 1.5;">
+          <li>Designed and deployed a responsive cloud web platform replacing traditional paper registers for legal practitioners.</li>
+          <li>Implemented modular script architecture (<code>dashboard.js</code>, <code>clients.js</code>) and structured Firestore NoSQL collections for real-time cause-list management.</li>
+          <li>Built a two-step Recycle Bin soft-delete and recovery pipeline to ensure secure data persistence.</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Certifications &amp; Industry Simulations</h2>
+        <div style="margin-bottom: 0.6rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.92rem;">
+            <span>TATA × Forage: GenAI Powered Data Analytics Job Simulation</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">October 2026</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Covered EDA, predictive delinquency modeling with AI, and data storytelling for collections strategies.</p>
+        </div>
+        <div style="margin-bottom: 0.6rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.92rem;">
+            <span>TATA × Forage: Cybersecurity Analyst Job Simulation</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">October 2026</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Completed practical tasks in Identity and Access Management (IAM) fundamentals and custom IAM solutions.</p>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.92rem;">
+            <span>Basic Russian Language Course Certificate</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">September 2026</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Center for Open Education in Russian (Russian Ministry of Education Programme in India).</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Technical Capabilities</h2>
+        <p style="font-size: 0.88rem; color: #333332; line-height: 1.6;">
+          <strong>Languages &amp; Web:</strong> HTML5, CSS3, JavaScript (ES6+), C Programming, Python (Foundational)<br>
+          <strong>Cloud &amp; Databases:</strong> Google Firebase (Cloud Firestore, Auth, Hosting), Git, GitHub, PowerShell, VS Code<br>
+          <strong>AI &amp; Productivity:</strong> GitHub Copilot, ChatGPT, Google Gemini &amp; Claude Prompt Engineering
+        </p>
+      </div>
+
+      <div>
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Education</h2>
+        <div style="display: flex; justify-content: space-between; font-size: 0.92rem; font-weight: 600;">
+          <span>Bachelor of Computer Applications (BCA, 5th Semester)</span>
+          <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">2024 – 2027</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #52504C; margin-bottom: 0.4rem;">Mahatma Gandhi Kashi Vidyapith University (MGKVP), Varanasi, UP</p>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; margin-top: 0.4rem;">
+          <span>Intermediate (Class 12th) — UP Board (65.60%) &amp; Matriculation (74.33%)</span>
+          <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">2021 – 2024</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #52504C;">Government City Inter College, Ghazipur, UP</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ======================= MAIN STRUCTURAL SHELL ======================= -->
   <div class="page-shell" id="top">
@@ -1532,21 +1702,10 @@
                 <span>Inspect Advocate Diary</span>
                 <span aria-hidden="true">↓</span>
               </a>
-              <a href="#certifications" class="btn-secondary">
-                <span>View Certificates (03)</span>
-                <span aria-hidden="true">↓</span>
-              </a>
-              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                <!-- Document PDF Icon -->
-                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                <span>View Resume (PDF)</span>
+              <button type="button" class="btn-secondary" onclick="openResumeModal()">
+                <span>Auto-Generate Resume</span>
                 <span aria-hidden="true">↗</span>
-              </a>
+              </button>
             </div>
 
             <!-- Social Links with Official Brand Logos -->
@@ -1852,13 +2011,13 @@
                 <span>yeashkumar.artec@gmail.com</span>
               </a>
 
-              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="quick-social">
+              <button type="button" class="quick-social" onclick="openResumeModal()" style="cursor: pointer; background: transparent;">
                 <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                 </svg>
-                <span>View Resume (PDF)</span>
-              </a>
+                <span>View Auto-Resume</span>
+              </button>
             </div>
           </div>
 
@@ -2330,8 +2489,8 @@
                 </svg>
                 <span class="dir-platform">Resume</span>
               </span>
-              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="dir-handle">
-                resume.pdf ↗
+              <a role="button" onclick="openResumeModal()" class="dir-handle" style="cursor: pointer; color: var(--accent-vermilion);">
+                Auto-Resume ↗
               </a>
             </div>
           </div>
@@ -2349,7 +2508,27 @@
 
   <!-- ======================= INTERACTIVE SCRIPTS ======================= -->
   <script>
-    // 1. Auto Device Theme Sync + Manual Theme Switcher
+    // 1. Auto-Resume Modal Controllers
+    function openResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function printResume() {
+      window.print();
+    }
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeResumeModal();
+    });
+
+    // 2. Auto Device Theme Sync + Manual Theme Switcher
     function updateThemeLabel(theme) {
       const label = document.getElementById('theme-label');
       if (label) {
@@ -2365,7 +2544,6 @@
       updateThemeLabel(next);
     }
 
-    // Listen to live OS/device theme changes if user hasn't manually locked a theme
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
       if (!localStorage.getItem('portfolio-theme')) {
         const autoTheme = e.matches ? 'dark' : 'light';
@@ -2374,7 +2552,7 @@
       }
     });
 
-    // 2. Dynamic Sticky Header Offset Calculation (Fixes mobile multi-line header overlap)
+    // 3. Dynamic Sticky Header Offset Calculation
     function updateHeaderOffset() {
       const header = document.getElementById('site-header');
       if (header) {
@@ -2385,7 +2563,7 @@
     window.addEventListener('load', updateHeaderOffset);
     window.addEventListener('resize', updateHeaderOffset);
 
-    // 3. Interactive Blueprint Tabs for Advocate Diary
+    // 4. Interactive Blueprint Tabs for Advocate Diary
     function switchTab(event, panelId) {
       const buttons = document.querySelectorAll('.tab-btn');
       const panels = document.querySelectorAll('.tab-panel');
@@ -2404,7 +2582,7 @@
       document.getElementById(panelId).classList.add('active');
     }
 
-    // 4. Interactive Side-Menu Switcher for Certificates Vault
+    // 5. Interactive Side-Menu Switcher for Certificates Vault
     function switchCert(event, certPanelId) {
       const certButtons = document.querySelectorAll('.cert-nav-btn');
       const certPanels = document.querySelectorAll('.cert-panel');
@@ -2423,7 +2601,7 @@
       document.getElementById(certPanelId).classList.add('active');
     }
 
-    // 5. One-Click Email Copy (with Fallback)
+    // 6. One-Click Email Copy (with Fallback)
     function copyEmail() {
       const email = 'yeashkumar.artec@gmail.com';
       const btn = document.getElementById('copy-btn');
@@ -2440,7 +2618,7 @@
       }
     }
 
-    // 6. Subtle Scroll Reveal & Sticky Index Rail Active State
+    // 7. Subtle Scroll Reveal & Sticky Index Rail Active State
     document.addEventListener('DOMContentLoaded', () => {
       updateHeaderOffset();
       updateThemeLabel(document.documentElement.getAttribute('data-theme') || 'light');
