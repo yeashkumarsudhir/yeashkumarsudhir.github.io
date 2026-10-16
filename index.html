@@ -1346,7 +1346,7 @@
       background: #D9381E;
     }
 
-    @media print {
+   @media print {
       body * {
         visibility: hidden;
       }
@@ -1356,19 +1356,27 @@
       .resume-modal {
         position: absolute;
         inset: 0;
-        background: transparent;
-        padding: 0;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        overflow: visible !important;
       }
       .resume-sheet {
-        box-shadow: none;
-        max-width: 100%;
-        padding: 1rem;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0.5rem !important;
+        margin: 0 !important;
+        font-size: 11pt !important;
       }
       .resume-close-bar {
-        display: none;
+        display: none !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
       }
     }
-
     /* ==========================================================================
        05 / CONTACT SECTION
        ========================================================================== */
