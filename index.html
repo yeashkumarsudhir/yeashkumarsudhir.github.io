@@ -948,7 +948,72 @@
     }
 
     /* ==========================================================================
-       02 / ABOUT & ACADEMIC LEDGER
+       02 / ADDITIONAL PROJECTS (HOSTEL MESS PORTAL & MINI ARCADE)
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .project-card {
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-elevated);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-vermilion);
+      transform: translateY(-2px);
+    }
+
+    .project-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-vermilion);
+    }
+
+    .project-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      color: var(--ink-primary);
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 1.25rem;
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       03 / ABOUT & ACADEMIC LEDGER
        ========================================================================== */
     .about-grid {
       display: grid;
@@ -1010,7 +1075,7 @@
     }
 
     /* ==========================================================================
-       03 / CAPABILITIES & TOOLS
+       04 / CAPABILITIES & TOOLS
        ========================================================================== */
     .skills-grid {
       display: grid;
@@ -1068,7 +1133,7 @@
     }
 
     /* ==========================================================================
-       04 / CERTIFICATIONS & CREDENTIALS VAULT (SIDEBAR DRAWER + VIEWER)
+       05 / CERTIFICATIONS & CREDENTIALS VAULT
        ========================================================================== */
     .cert-header-wrap {
       margin-bottom: 2.25rem;
@@ -1379,7 +1444,7 @@
     }
 
     /* ==========================================================================
-       05 / CONTACT SECTION
+       06 / CONTACT SECTION
        ========================================================================== */
     .contact-layout {
       display: grid;
@@ -1524,9 +1589,10 @@
 
       <nav class="header-nav" aria-label="Primary Navigation">
         <a href="#work" class="nav-link">01 / Work</a>
-        <a href="#about" class="nav-link">02 / About</a>
-        <a href="#capabilities" class="nav-link">03 / Skills</a>
-        <a href="#certifications" class="nav-link">04 / Certificates</a>
+        <a href="#projects" class="nav-link">02 / Projects</a>
+        <a href="#about" class="nav-link">03 / About</a>
+        <a href="#capabilities" class="nav-link">04 / Skills</a>
+        <a href="#certifications" class="nav-link">05 / Certificates</a>
         <a role="button" onclick="openResumeModal()" class="nav-link" style="color: var(--accent-vermilion); font-weight: 600;">Auto-Resume ↗</a>
         <a href="#contact" class="nav-cta">Get in Touch</a>
 
@@ -1576,53 +1642,54 @@
       <div style="margin-bottom: 1.5rem;">
         <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Professional Summary</h2>
         <p style="font-size: 0.92rem; color: #333332; line-height: 1.6;">
-          BCA 5th-semester student at MGKVP University, Varanasi, with hands-on experience in building cloud-backed web applications using JavaScript and Google Firebase. Recognized for practical achievements including founding <em>Advocate Diary</em> and completing professional certifications in AI and Cybersecurity Awareness (TCS iON / TATA) along with industry job simulations in GenAI Data Analytics and Cybersecurity (via Forage). Seeking IT and Software Development internships to contribute robust code.
+          BCA 5th-semester student at MGKVP University, Varanasi, with hands-on experience in building cloud-backed web applications using JavaScript and Google Firebase. Recognized for practical achievements including founding <em>Advocate Diary</em>, building the <em>Hostel Mess Management Portal</em> and <em>Mini Arcade</em>, and completing professional certifications in AI and Cybersecurity Awareness (TCS iON / TATA) along with industry job simulations. Seeking IT and Software Development internships to contribute robust code.
         </p>
       </div>
 
       <div style="margin-bottom: 1.5rem;">
-        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Key Flagship Project</h2>
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-          <strong style="font-size: 0.98rem; color: #141413;">Advocate Diary — Digital Legal Practice Management Platform</strong>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: #D9381E;">Live on Firebase Hosting</span>
+        <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Key Flagship &amp; Featured Projects</h2>
+        <div style="margin-bottom: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.15rem;">
+            <strong style="font-size: 0.95rem; color: #141413;">Advocate Diary — Digital Legal Practice Management Platform</strong>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #D9381E;">Firebase Hosting</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Cloud web app with vanilla JS and Firestore for managing court hearings, client briefs, and cause-lists.</p>
         </div>
-        <p style="font-size: 0.88rem; color: #52504C; margin-bottom: 0.4rem;">Tech Stack: Vanilla JavaScript (ES6+), HTML5, CSS3, Google Cloud Firestore, Firebase Auth.</p>
-        <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #333332; line-height: 1.5;">
-          <li>Designed and deployed a responsive cloud web platform replacing traditional paper registers for legal practitioners.</li>
-          <li>Implemented modular script architecture (<code>dashboard.js</code>, <code>clients.js</code>) and structured Firestore NoSQL collections for real-time cause-list management.</li>
-          <li>Built a two-step Recycle Bin soft-delete and recovery pipeline to ensure secure data persistence.</li>
-        </ul>
+        <div style="margin-bottom: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.15rem;">
+            <strong style="font-size: 0.95rem; color: #141413;">MGKVP Hostel Mess Management Portal</strong>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #D9381E;">Firebase Web App</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Digital mess operations and attendance tracking portal built for university hostel management.</p>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.15rem;">
+            <strong style="font-size: 0.95rem; color: #141413;">Mini Arcade Web Platform</strong>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #D9381E;">Vercel Hosted</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #52504C;">Interactive browser-based gaming arcade showcasing dynamic UI and responsive JavaScript logic.</p>
+        </div>
       </div>
 
       <div style="margin-bottom: 1.5rem;">
         <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Certifications &amp; Industry Simulations</h2>
-        <div style="margin-bottom: 0.5rem;">
-          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
-            <span>TCS iON / TATA: AI and Cybersecurity Awareness ("AI for All" Initiative)</span>
-            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">October 2026</span>
+        <div style="margin-bottom: 0.45rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.88rem;">
+            <span>TCS iON / TATA: AI and Cybersecurity Awareness ("AI for All")</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;">Oct 2026</span>
           </div>
-          <p style="font-size: 0.82rem; color: #52504C;">Completed training in AI and Cybersecurity principles in partnership with MPIT-CoE and TCS Foundation.</p>
         </div>
-        <div style="margin-bottom: 0.5rem;">
-          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
-            <span>TATA × Forage: GenAI Powered Data Analytics Job Simulation</span>
-            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">October 2026</span>
+        <div style="margin-bottom: 0.45rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.88rem;">
+            <span>TATA × Forage: GenAI Powered Data Analytics &amp; Cybersecurity</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;">Oct 2026</span>
           </div>
-          <p style="font-size: 0.82rem; color: #52504C;">Covered EDA, predictive delinquency modeling with AI, and data storytelling for collections strategies.</p>
-        </div>
-        <div style="margin-bottom: 0.5rem;">
-          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
-            <span>TATA × Forage: Cybersecurity Analyst Job Simulation</span>
-            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">October 2026</span>
-          </div>
-          <p style="font-size: 0.82rem; color: #52504C;">Completed practical tasks in Identity and Access Management (IAM) fundamentals and custom IAM solutions.</p>
         </div>
         <div>
-          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
-            <span>Basic Russian Language Course Certificate</span>
-            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">September 2026</span>
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.88rem;">
+            <span>Basic Russian Language Course Certificate (Russian Ministry of Education)</span>
+            <span style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;">Sept 2026</span>
           </div>
-          <p style="font-size: 0.82rem; color: #52504C;">Center for Open Education in Russian (Russian Ministry of Education Programme in India).</p>
         </div>
       </div>
 
@@ -1630,8 +1697,8 @@
         <h2 style="font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #DCD8D0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; color: #141413;">Technical Capabilities</h2>
         <p style="font-size: 0.88rem; color: #333332; line-height: 1.6;">
           <strong>Languages &amp; Web:</strong> HTML5, CSS3, JavaScript (ES6+), C Programming, Python (Foundational)<br>
-          <strong>Cloud &amp; Databases:</strong> Google Firebase (Cloud Firestore, Auth, Hosting), Git, GitHub, PowerShell, VS Code<br>
-          <strong>AI &amp; Productivity:</strong> AI &amp; Cybersecurity Awareness (TCS iON), GitHub Copilot, ChatGPT, Google Gemini &amp; Claude
+          <strong>Cloud &amp; Databases:</strong> Google Firebase (Cloud Firestore, Auth, Hosting), Vercel, Git, GitHub, PowerShell<br>
+          <strong>AI &amp; Productivity:</strong> AI &amp; Cybersecurity Awareness (TCS iON), GitHub Copilot, ChatGPT, Gemini &amp; Claude
         </p>
       </div>
 
@@ -1665,18 +1732,22 @@
         <a href="#work" class="rail-item" data-section="work">
           <span class="rail-item-left">01 / Selected Work</span>
         </a>
+        <a href="#projects" class="rail-item" data-section="projects">
+          <span class="rail-item-left">02 / Projects</span>
+          <span class="rail-badge">02</span>
+        </a>
         <a href="#about" class="rail-item" data-section="about">
-          <span class="rail-item-left">02 / About &amp; Edu</span>
+          <span class="rail-item-left">03 / About &amp; Edu</span>
         </a>
         <a href="#capabilities" class="rail-item" data-section="capabilities">
-          <span class="rail-item-left">03 / Capabilities</span>
+          <span class="rail-item-left">04 / Capabilities</span>
         </a>
         <a href="#certifications" class="rail-item" data-section="certifications">
-          <span class="rail-item-left">04 / Certificates</span>
+          <span class="rail-item-left">05 / Certificates</span>
           <span class="rail-badge">04</span>
         </a>
         <a href="#contact" class="rail-item" data-section="contact">
-          <span class="rail-item-left">05 / Contact</span>
+          <span class="rail-item-left">06 / Contact</span>
         </a>
       </div>
 
@@ -1710,16 +1781,20 @@
             </h1>
 
             <p class="hero-subcopy">
-              I’m Yeash Kumar Sudhir, based in Varanasi. I build cloud-backed web applications like <strong>Advocate Diary</strong> using JavaScript and Google Firebase, alongside a strong creative foundation in photography and video editing.
+              I’m Yeash Kumar Sudhir, based in Varanasi. I build cloud-backed web applications like <strong>Advocate Diary</strong> and hostel management portals using JavaScript and Google Firebase.
             </p>
 
             <div class="hero-actions">
               <a href="#work" class="btn-primary">
-                <span>Inspect Advocate Diary</span>
+                <span>Inspect Flagship Work</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="#projects" class="btn-secondary">
+                <span>View Web Apps (02)</span>
                 <span aria-hidden="true">↓</span>
               </a>
               <button type="button" class="btn-secondary" onclick="openResumeModal()">
-                <span>Auto-Generate Resume</span>
+                <span>Auto-Resume</span>
                 <span aria-hidden="true">↗</span>
               </button>
             </div>
@@ -1983,9 +2058,73 @@
         </div>
       </section>
 
-      <!-- ======================= 02 / ABOUT & EDUCATION ======================= -->
+      <!-- ======================= 02 / ADDITIONAL PROJECTS (HOSTEL MESS & MINI ARCADE) ======================= -->
+      <section class="section-block reveal" id="projects">
+        <div class="section-kicker">02 / Additional Projects &amp; Web Applications</div>
+
+        <div style="margin-bottom: 2.25rem;">
+          <h2 class="case-title">Cloud Portals &amp; Interactive Web Apps</h2>
+          <p class="case-tagline">
+            Production web applications built to solve operational mess workflows and showcase interactive browser experiences.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: MGKVP Hostel Mess Management Portal -->
+          <article class="project-card">
+            <div>
+              <div class="project-meta-top">
+                <span>MGKVP University Hostel</span>
+                <span>Live on Firebase</span>
+              </div>
+              <h3 class="project-title">Hostel Mess Management Portal</h3>
+              <p class="project-desc">
+                A streamlined digital operations portal built for university hostel residents and mess administration to track daily meal logs, attendance, and menu schedules efficiently.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="stack-row" style="padding-top: 0;">
+                <span class="stack-chip">HTML5 / CSS3</span>
+                <span class="stack-chip">JavaScript</span>
+                <span class="stack-chip">Firebase Hosting</span>
+              </div>
+              <a href="https://mgkvp-mess-portal.web.app/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.55rem 1rem; font-size: 0.76rem;">
+                <span>Live App</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Mini Arcade Web Platform -->
+          <article class="project-card">
+            <div>
+              <div class="project-meta-top">
+                <span>Interactive Browser Gaming</span>
+                <span>Live on Vercel</span>
+              </div>
+              <h3 class="project-title">Mini Arcade Web Platform</h3>
+              <p class="project-desc">
+                An engaging, responsive web-based arcade platform featuring interactive mini-games, dynamic DOM manipulation, and smooth JavaScript event handling.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="stack-row" style="padding-top: 0;">
+                <span class="stack-chip">JavaScript (ES6+)</span>
+                <span class="stack-chip">DOM API</span>
+                <span class="stack-chip">Vercel Edge</span>
+              </div>
+              <a href="https://mini-arcade-self.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.55rem 1rem; font-size: 0.76rem;">
+                <span>Play Live</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================= 03 / ABOUT & EDUCATION ======================= -->
       <section class="section-block reveal" id="about">
-        <div class="section-kicker">02 / About &amp; Academic Background</div>
+        <div class="section-kicker">03 / About &amp; Academic Background</div>
 
         <div class="about-grid">
           <!-- Left Column: First-Person Bio -->
@@ -1994,10 +2133,10 @@
               I enjoy turning everyday operational problems into clean, working software—and framing stories through a camera lens.
             </h2>
             <p>
-              I am currently pursuing my <strong>Bachelor of Computer Applications (BCA, 5th Semester)</strong> at <strong>Mahatma Gandhi Kashi Vidyapith University (MGKVP)</strong> in Varanasi. Rather than keeping code strictly inside classroom assignments, I built and shipped <em>Advocate Diary</em> to solve how legal practitioners track their daily court hearings and client records.
+              I am currently pursuing my <strong>Bachelor of Computer Applications (BCA, 5th Semester)</strong> at <strong>Mahatma Gandhi Kashi Vidyapith University (MGKVP)</strong> in Varanasi. Rather than keeping code strictly inside classroom assignments, I built and shipped <em>Advocate Diary</em> and the <em>Hostel Mess Management Portal</em> to solve real administrative and operational challenges around campus.
             </p>
             <p>
-              Alongside software development, I have completed professional certifications in <em>AI and Cybersecurity Awareness</em> under the TCS Foundation / TCS iON "AI for All" initiative, alongside industry job simulations with TATA (via Forage) in GenAI Data Analytics and Cybersecurity, and a Basic Russian Language certification.
+              Alongside full-stack web development, I have completed professional certifications in <em>AI and Cybersecurity Awareness</em> under the TCS Foundation / TCS iON "AI for All" Guinness World Records initiative[cite: 9], alongside industry job simulations with TATA (via Forage) in GenAI Data Analytics and Cybersecurity, and a Basic Russian Language certification.
             </p>
             <p>
               I am actively looking for <strong>IT &amp; Software Development Internships</strong> and freelance projects where I can contribute to production codebases, learn fast, and deliver reliable work.
@@ -2098,9 +2237,9 @@
         </div>
       </section>
 
-      <!-- ======================= 03 / CAPABILITIES & TOOLS ======================= -->
+      <!-- ======================= 04 / CAPABILITIES & TOOLS ======================= -->
       <section class="section-block reveal" id="capabilities">
-        <div class="section-kicker">03 / Capabilities &amp; Technical Stack</div>
+        <div class="section-kicker">04 / Capabilities &amp; Technical Stack</div>
 
         <div class="skills-grid">
           <!-- Column 1: Programming & Web -->
@@ -2213,9 +2352,9 @@
         </div>
       </section>
 
-      <!-- ======================= 04 / CERTIFICATIONS & CREDENTIALS VAULT ======================= -->
+      <!-- ======================= 05 / CERTIFICATIONS & CREDENTIALS VAULT ======================= -->
       <section class="section-block reveal" id="certifications">
-        <div class="section-kicker">04 / Certifications &amp; Industry Simulations</div>
+        <div class="section-kicker">05 / Certifications &amp; Industry Simulations</div>
 
         <div class="cert-header-wrap">
           <h2 class="case-title">Verified Credentials &amp; Job Simulations</h2>
@@ -2464,9 +2603,9 @@
         </div>
       </section>
 
-      <!-- ======================= 05 / CONTACT ======================= -->
+      <!-- ======================= 06 / CONTACT ======================= -->
       <section class="section-block reveal" id="contact">
-        <div class="section-kicker">05 / Contact &amp; Channels</div>
+        <div class="section-kicker">06 / Contact &amp; Channels</div>
 
         <div class="contact-layout">
           <div>
@@ -2557,8 +2696,8 @@
                 </svg>
                 <span class="dir-platform">Live Project</span>
               </span>
-              <a href="https://advocate-diary-co.web.app" target="_blank" rel="noopener noreferrer" class="dir-handle">
-                advocate-diary-co.web.app ↗
+              <a href="https://mgkvp-mess-portal.web.app/" target="_blank" rel="noopener noreferrer" class="dir-handle">
+                mgkvp-mess-portal.web.app ↗
               </a>
             </div>
 
