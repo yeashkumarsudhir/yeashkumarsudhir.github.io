@@ -58,7 +58,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { background-color: var(--bg-paper); color: var(--ink-primary); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
+    html { -webkit-text-size-adjust: 100%; background-color: var(--bg-paper); color: var(--ink-primary); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
     body { overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
 
@@ -187,34 +187,69 @@
 
     .site-footer { max-width: var(--max-w); margin: 0 auto; padding: 1.75rem 1.5rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); border-top: 1px solid var(--border-hairline); }
 
-    /* MOBILE RESPONSIVE FIX */
+    /* Header layout + mobile menu button */
+    .header-right { display: flex; align-items: center; gap: 1.35rem; }
+    .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .menu-toggle { display: none; align-items: center; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; min-height: 36px; padding: 0.42rem 0.8rem; border: 1px solid var(--border-strong); background: transparent; color: var(--ink-primary); cursor: pointer; }
+    img { max-width: 100%; height: auto; }
+    .brand-name, .nav-link, .nav-cta { white-space: nowrap; }
+    main, main section, main section > * { min-width: 0; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-vermilion); outline-offset: 2px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .page-shell { --rail-w: 200px; }
+      .section-block { padding: 3rem 2rem; }
+    }
+
     @media (max-width: 900px) {
-      .page-shell {
-        grid-template-columns: 1fr !important;
-        border-left: none;
-        border-right: none;
-      }
-      .index-rail {
-        display: none !important;
-      }
-      .section-block {
-        padding: 2rem 1.25rem !important;
-      }
-      .header-nav {
-        gap: 0.75rem !important;
-      }
-      .nav-link {
-        font-size: 0.65rem !important;
-      }
-      .brand-coord {
-        display: none;
-      }
-      .resume-sheet {
-        padding: 1.5rem !important;
-      }
-      .res-name {
-        font-size: 1.5rem !important;
-      }
+      /* Header + dropdown menu */
+      .header-inner { padding: 0.7rem 1.25rem; gap: 0.75rem; }
+      .header-right { gap: 0.5rem; }
+      .brand-coord { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .header-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 0.25rem 1.25rem 1.25rem; background-color: var(--bg-paper); border-bottom: 1px solid var(--border-hairline); max-height: calc(100vh - 58px); max-height: calc(100dvh - 58px); overflow-y: auto; }
+      .site-header.menu-open .header-nav { display: flex; }
+      .nav-link { font-size: 0.82rem; padding: 0.95rem 0; border-bottom: 1px solid var(--border-hairline); }
+      .nav-cta { margin-top: 1rem; padding: 0.95rem; font-size: 0.82rem; text-align: center; }
+
+      /* Layout */
+      .page-shell { grid-template-columns: 1fr; border-left: none; border-right: none; }
+      .index-rail { display: none; }
+      .section-block { padding: 2rem 1.25rem; }
+      .page-heading { font-size: clamp(1.9rem, 8.5vw, 2.6rem); }
+      .page-sub { font-size: 0.98rem; margin-bottom: 2rem; }
+      .btn-primary, .btn-secondary { min-height: 46px; justify-content: center; text-align: center; }
+      .site-footer { flex-direction: column; align-items: center; gap: 0.4rem; text-align: center; padding: 1.5rem 1.25rem; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .email-box { display: flex; width: 100%; padding: 0.9rem 1rem; }
+      .email-address { font-size: 0.85rem; overflow-wrap: anywhere; }
+      .copy-btn { min-height: 36px; padding: 0.45rem 0.8rem; }
+      .directory-card { padding: 0.25rem 1.1rem; }
+      .dir-row { flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+    }
+
+    @media (max-width: 480px) {
+      .brand-name { font-size: 0.8rem; }
+      #theme-label { display: none; }
+      .theme-toggle-btn { padding: 0.42rem 0.6rem; min-height: 36px; }
+      .btn-primary, .btn-secondary { width: 100%; }
+
+    }
+
+    /* Resume modal on phones (screen only, so the A4 print layout is untouched) */
+    @media screen and (max-width: 900px) {
+      .resume-modal { padding: 0.75rem 0.5rem; }
+      .resume-sheet { padding: 1.1rem 1.1rem 1.5rem; }
+      .resume-close-bar { position: static; justify-content: flex-end; flex-wrap: wrap; margin-bottom: 0.9rem; }
+      .resume-action-btn { min-height: 40px; padding: 0.5rem 0.9rem; }
+      .res-name { font-size: 1.5rem; }
+      .res-item-row { flex-direction: column; align-items: flex-start; gap: 0.1rem; }
+      .res-contact-info, .res-links-row { overflow-wrap: anywhere; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
@@ -228,20 +263,25 @@
         <span class="brand-coord">Varanasi, IN</span>
       </a>
 
-      <nav class="header-nav">
-        <a href="index.html" class="nav-link">00 / Home</a>
-        <a href="work.html" class="nav-link">01 / Work</a>
-        <a href="about.html" class="nav-link">02 / About</a>
-        <a href="capabilities.html" class="nav-link">03 / Skills</a>
-        <a href="certificates.html" class="nav-link">04 / Certificates</a>
-        <a href="contact.html" class="nav-cta">Get in Touch</a>
+      <div class="header-right">
+        <nav class="header-nav" id="site-nav" aria-label="Main">
+          <a href="index.html" class="nav-link">00 / Home</a>
+          <a href="work.html" class="nav-link">01 / Work</a>
+          <a href="about.html" class="nav-link">02 / About</a>
+          <a href="capabilities.html" class="nav-link">03 / Skills</a>
+          <a href="certificates.html" class="nav-link">04 / Certificates</a>
+          <a href="contact.html" class="nav-cta">Get in Touch</a>
+        </nav>
 
-        <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+        <div class="header-actions">
+          <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
           <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <span id="theme-label">Theme</span>
         </button>
-      </nav>
+          <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -330,7 +370,7 @@
         <h2 class="res-section-title">Education</h2>
         
         <div class="res-item-row">
-          <span class="res-item-title">Bachelor of Computer Applications (BCA — Pursuring, 5th Semester)</span>
+          <span class="res-item-title">Bachelor of Computer Applications (BCA — Pursuing, 5th Semester)</span>
           <span class="res-item-sub">2024 – 2027</span>
         </div>
         <p class="res-item-desc">Mahatma Gandhi Kashi Vidyapith University (MGKVP), Varanasi</p>
@@ -468,6 +508,22 @@
     }
     document.addEventListener('DOMContentLoaded', () => {
       updateThemeLabel(document.documentElement.getAttribute('data-theme') || 'light');
+
+      const header = document.getElementById('site-header');
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('site-nav');
+
+      function setMenu(open) {
+        header.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.textContent = open ? 'Close' : 'Menu';
+      }
+
+      toggle.addEventListener('click', () => setMenu(!header.classList.contains('menu-open')));
+      nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+      document.addEventListener('click', (e) => { if (!header.contains(e.target)) setMenu(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+      window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
     });
   </script>
 </body>
