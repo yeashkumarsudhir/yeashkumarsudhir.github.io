@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capabilities & Tech Stack — Yeash Kumar Sudhir</title>
+  <meta name="description" content="Technical capabilities, programming languages, cloud tools, and databases used by Yeash Kumar Sudhir." />
+
+  <!-- Instant Theme Detection -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const activeTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', activeTheme);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-paper: #F6F4EF;
+      --bg-surface: #EFECE6;
+      --bg-elevated: #FFFFFF;
+      --bg-header: rgba(246, 244, 239, 0.94);
+      --ink-primary: #141413;
+      --ink-secondary: #52504C;
+      --ink-muted: #78756F;
+      --accent-vermilion: #D9381E;
+      --accent-vermilion-soft: rgba(217, 56, 30, 0.08);
+      --border-hairline: #DCD8D0;
+      --border-strong: #141413;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --max-w: 1320px;
+      --rail-w: 230px;
+      color-scheme: light;
+    }
+
+    [data-theme="dark"] {
+      --bg-paper: #111110;
+      --bg-surface: #1A1918;
+      --bg-elevated: #222120;
+      --bg-header: rgba(17, 17, 16, 0.94);
+      --ink-primary: #F2EFE9;
+      --ink-secondary: #B5B1A8;
+      --ink-muted: #858178;
+      --accent-vermilion: #FF5436;
+      --accent-vermilion-soft: rgba(255, 84, 54, 0.14);
+      --border-hairline: #2C2B29;
+      --border-strong: #E6E2DA;
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg-paper); color: var(--ink-primary); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
+    body { overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 50; background-color: var(--bg-header); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-hairline); }
+    .header-inner { max-width: var(--max-w); margin: 0 auto; padding: 0.95rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand-wordmark { display: flex; align-items: baseline; gap: 0.6rem; }
+    .brand-name { font-family: var(--font-mono); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; }
+    .brand-coord { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); }
+    .header-nav { display: flex; align-items: center; gap: 1.35rem; }
+    .nav-link { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; color: var(--ink-secondary); transition: color 0.2s ease; }
+    .nav-link:hover, .nav-link.active { color: var(--accent-vermilion); }
+    .nav-cta { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; padding: 0.45rem 0.9rem; border: 1px solid var(--border-strong); background: transparent; color: var(--ink-primary); transition: all 0.2s ease; }
+    .nav-cta:hover { background-color: var(--accent-vermilion); border-color: var(--accent-vermilion); color: #ffffff; }
+
+    /* Theme Button */
+    .theme-toggle-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; padding: 0.42rem 0.7rem; border: 1px solid var(--border-hairline); background-color: var(--bg-surface); color: var(--ink-primary); cursor: pointer; }
+    .theme-icon { width: 15px; height: 15px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+
+    /* Shell */
+    .page-shell { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: var(--rail-w) 1fr; border-left: 1px solid var(--border-hairline); border-right: 1px solid var(--border-hairline); }
+    .index-rail { display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--border-hairline); padding: 2.5rem 1.25rem; position: sticky; top: 57px; height: calc(100vh - 57px); }
+    .rail-menu { display: flex; flex-direction: column; gap: 0.85rem; }
+    .rail-label { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.35rem; }
+    .rail-item { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-secondary); display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
+    .rail-item.active { color: var(--ink-primary); font-weight: 600; }
+    .rail-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-muted); border-top: 1px solid var(--border-hairline); padding-top: 1rem; }
+
+    /* Sections */
+    .section-block { padding: 4rem 3rem; border-bottom: 1px solid var(--border-hairline); }
+    .section-kicker { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-vermilion); margin-bottom: 1.25rem; }
+    .section-kicker::before { content: ""; display: inline-block; width: 18px; height: 1.5px; background-color: var(--accent-vermilion); }
+
+    .page-heading { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.1; margin-bottom: 0.75rem; }
+    .page-sub { font-size: 1.05rem; color: var(--ink-secondary); max-width: 65ch; margin-bottom: 2.5rem; }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media(max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
+    .skill-column { border: 1px solid var(--border-hairline); background-color: var(--bg-surface); padding: 1.75rem; }
+    .skill-col-header { font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); padding-bottom: 0.75rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-hairline); display: flex; justify-content: space-between; }
+    .skill-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .skill-entry { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.95rem; }
+    .skill-name { font-weight: 500; color: var(--ink-primary); }
+    .skill-level { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-secondary); }
+
+    .site-footer { max-width: var(--max-w); margin: 0 auto; padding: 1.75rem 1.5rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); border-top: 1px solid var(--border-hairline); }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-wordmark">
+        <span class="brand-name">Yeash Kumar Sudhir</span>
+        <span class="brand-coord">Varanasi, IN</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">00 / Home</a>
+        <a href="work.html" class="nav-link">01 / Work</a>
+        <a href="about.html" class="nav-link">02 / About</a>
+        <a href="capabilities.html" class="nav-link active">03 / Skills</a>
+        <a href="certificates.html" class="nav-link">04 / Certificates</a>
+        <a href="contact.html" class="nav-cta">Get in Touch</a>
+
+        <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="theme-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SHELL -->
+  <div class="page-shell">
+    <aside class="index-rail">
+      <div class="rail-menu">
+        <div class="rail-label">Directory</div>
+        <a href="index.html" class="rail-item">00 / Home Overview</a>
+        <a href="work.html" class="rail-item">01 / Selected Work</a>
+        <a href="about.html" class="rail-item">02 / About &amp; Education</a>
+        <a href="capabilities.html" class="rail-item active">03 / Capabilities</a>
+        <a href="certificates.html" class="rail-item">04 / Certificates</a>
+        <a href="contact.html" class="rail-item">05 / Contact</a>
+      </div>
+      <div class="rail-meta">
+        <div>BCA (2024–2027)</div>
+        <div>MGKVP University</div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="section-block">
+        <div class="section-kicker">03 / Capabilities &amp; Technical Stack</div>
+        <h1 class="page-heading">Technical Expertise &amp; Tools</h1>
+        <p class="page-sub">A comprehensive overview of the programming languages, cloud databases, AI tools, and professional competencies I utilize to build real-world applications.</p>
+
+        <div class="skills-grid">
+          <!-- Column 1: Programming & Web -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Programming &amp; Web Development</span>
+              <span>01</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">C &amp; C++ Programming</span>
+                <span class="skill-level">Core Logic</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">HTML5, CSS3 &amp; Responsive UI</span>
+                <span class="skill-level">Production</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">JavaScript (Vanilla ES6+)</span>
+                <span class="skill-level">Dynamic Web Apps</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">Foundational</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Cloud & Workflow -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Cloud, Database &amp; Version Control</span>
+              <span>02</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">Google Firebase (Cloud Firestore)</span>
+                <span class="skill-level">NoSQL &amp; Real-Time</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Firebase Hosting &amp; Vercel</span>
+                <span class="skill-level">Edge Deployment</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Git &amp; GitHub</span>
+                <span class="skill-level">Version Control</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">VS Code &amp; PowerShell</span>
+                <span class="skill-level">Primary Environment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: AI & Security -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>AI Productivity &amp; Security</span>
+              <span>03</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">ChatGPT, Gemini, Claude, Copilot</span>
+                <span class="skill-level">AI-Assisted Dev</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">AI &amp; Cybersecurity Awareness</span>
+                <span class="skill-level">TCS iON Certified</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">GenAI Data Analytics &amp; Risk Profiling</span>
+                <span class="skill-level">TATA Simulation</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Identity &amp; Access Management (IAM)</span>
+                <span class="skill-level">TATA Simulation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 4: Media & Strengths -->
+          <div class="skill-column">
+            <div class="skill-col-header">
+              <span>Media &amp; Professional Strengths</span>
+              <span>04</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-entry">
+                <span class="skill-name">Photography &amp; Video Production</span>
+                <span class="skill-level">Visual Storytelling</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Continuous Learner &amp; Problem Solver</span>
+                <span class="skill-level">Adaptable</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Communication &amp; Team Collaboration</span>
+                <span class="skill-level">Project Execution</span>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Trilingual (Hindi, English, Russian)</span>
+                <span class="skill-level">Certified Basic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Yeash Kumar Sudhir. Handcrafted in Varanasi, India.</div>
+    <div>LEARN · GROW · CONTRIBUTE</div>
+  </footer>
+
+  <script>
+    function updateThemeLabel(theme) {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = theme === 'dark' ? 'Light' : 'Dark';
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('portfolio-theme', next);
+      updateThemeLabel(next);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeLabel(document.documentElement.getAttribute('data-theme') || 'light');
+    });
+  </script>
+</body>
+</html>

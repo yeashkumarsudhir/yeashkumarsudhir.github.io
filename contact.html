@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Channels — Yeash Kumar Sudhir</title>
+  <meta name="description" content="Get in touch with Yeash Kumar Sudhir for software development internships, web projects, and collaborations." />
+
+  <!-- Instant Theme Detection -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const activeTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', activeTheme);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-paper: #F6F4EF;
+      --bg-surface: #EFECE6;
+      --bg-elevated: #FFFFFF;
+      --bg-header: rgba(246, 244, 239, 0.94);
+      --ink-primary: #141413;
+      --ink-secondary: #52504C;
+      --ink-muted: #78756F;
+      --accent-vermilion: #D9381E;
+      --accent-vermilion-soft: rgba(217, 56, 30, 0.08);
+      --border-hairline: #DCD8D0;
+      --border-strong: #141413;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --max-w: 1320px;
+      --rail-w: 230px;
+      color-scheme: light;
+    }
+
+    [data-theme="dark"] {
+      --bg-paper: #111110;
+      --bg-surface: #1A1918;
+      --bg-elevated: #222120;
+      --bg-header: rgba(17, 17, 16, 0.94);
+      --ink-primary: #F2EFE9;
+      --ink-secondary: #B5B1A8;
+      --ink-muted: #858178;
+      --accent-vermilion: #FF5436;
+      --accent-vermilion-soft: rgba(255, 84, 54, 0.14);
+      --border-hairline: #2C2B29;
+      --border-strong: #E6E2DA;
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg-paper); color: var(--ink-primary); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
+    body { overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 50; background-color: var(--bg-header); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-hairline); }
+    .header-inner { max-width: var(--max-w); margin: 0 auto; padding: 0.95rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand-wordmark { display: flex; align-items: baseline; gap: 0.6rem; }
+    .brand-name { font-family: var(--font-mono); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; }
+    .brand-coord { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); }
+    .header-nav { display: flex; align-items: center; gap: 1.35rem; }
+    .nav-link { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; color: var(--ink-secondary); transition: color 0.2s ease; cursor: pointer; }
+    .nav-link:hover, .nav-link.active { color: var(--accent-vermilion); }
+    .nav-cta { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; padding: 0.45rem 0.9rem; border: 1px solid var(--border-strong); background: transparent; color: var(--ink-primary); transition: all 0.2s ease; }
+    .nav-cta:hover { background-color: var(--accent-vermilion); border-color: var(--accent-vermilion); color: #ffffff; }
+
+    /* Theme Button */
+    .theme-toggle-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; padding: 0.42rem 0.7rem; border: 1px solid var(--border-hairline); background-color: var(--bg-surface); color: var(--ink-primary); cursor: pointer; }
+    .theme-icon { width: 15px; height: 15px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+
+    /* Shell */
+    .page-shell { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: var(--rail-w) 1fr; border-left: 1px solid var(--border-hairline); border-right: 1px solid var(--border-hairline); }
+    .index-rail { display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--border-hairline); padding: 2.5rem 1.25rem; position: sticky; top: 57px; height: calc(100vh - 57px); }
+    .rail-menu { display: flex; flex-direction: column; gap: 0.85rem; }
+    .rail-label { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.35rem; }
+    .rail-item { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-secondary); display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
+    .rail-item.active { color: var(--ink-primary); font-weight: 600; }
+    .rail-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-muted); border-top: 1px solid var(--border-hairline); padding-top: 1rem; }
+
+    /* Sections */
+    .section-block { padding: 4rem 3rem; border-bottom: 1px solid var(--border-hairline); }
+    .section-kicker { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-vermilion); margin-bottom: 1.25rem; }
+    .section-kicker::before { content: ""; display: inline-block; width: 18px; height: 1.5px; background-color: var(--accent-vermilion); }
+
+    .page-heading { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.1; margin-bottom: 0.75rem; }
+    .page-sub { font-size: 1.05rem; color: var(--ink-secondary); max-width: 55ch; margin-bottom: 2.5rem; }
+
+    /* Contact Layout */
+    .contact-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: start; }
+    @media(max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+
+    .email-box { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background-color: var(--bg-surface); border: 1px solid var(--border-strong); margin-bottom: 1.5rem; }
+    .email-address { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600; color: var(--ink-primary); display: inline-flex; align-items: center; gap: 0.55rem; }
+    .copy-btn { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; padding: 0.35rem 0.65rem; background-color: var(--ink-primary); color: var(--bg-paper); border: none; cursor: pointer; transition: background 0.2s; }
+    .copy-btn:hover { background-color: var(--accent-vermilion); color: #fff; }
+
+    .directory-card { border: 1px solid var(--border-strong); background-color: var(--bg-surface); padding: 0.5rem 1.5rem; }
+    .dir-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--border-hairline); font-family: var(--font-mono); font-size: 0.82rem; }
+    .dir-row:last-child { border-bottom: none; }
+    .dir-platform-wrap { display: inline-flex; align-items: center; gap: 0.75rem; }
+    .social-icon { width: 18px; height: 18px; fill: currentColor; color: var(--accent-vermilion); }
+    .dir-platform { color: var(--ink-primary); text-transform: uppercase; font-size: 0.78rem; font-weight: 600; }
+    .dir-handle { color: var(--ink-secondary); font-weight: 500; transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.25rem; }
+    .dir-handle:hover { color: var(--accent-vermilion); }
+
+    /* PROFESSIONAL CORPORATE RESUME MODAL STYLES */
+    .resume-modal { display: none; position: fixed; inset: 0; z-index: 1000; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(6px); overflow-y: auto; padding: 2rem 1rem; }
+    .resume-modal.active { display: flex; justify-content: center; align-items: flex-start; }
+    
+    .resume-sheet { 
+      background: #FFFFFF; 
+      color: #111111; 
+      width: 100%; 
+      max-width: 820px; 
+      padding: 2.2rem 2.8rem; 
+      box-shadow: 0 25px 50px rgba(0,0,0,0.35); 
+      position: relative; 
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; 
+      border-top: 6px solid #141413;
+    }
+
+    .resume-close-bar { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 0.75rem; }
+    .resume-action-btn { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; padding: 0.4rem 0.8rem; background: #141413; color: #F6F4EF; border: none; cursor: pointer; font-weight: 600; transition: background 0.2s; }
+    .resume-action-btn:hover { background: #D9381E; }
+
+    /* Resume Typography & Compact Spacing for Single Page Fit */
+    .res-header { border-bottom: 2px solid #141413; padding-bottom: 0.75rem; margin-bottom: 0.9rem; }
+    .res-name { font-size: 1.85rem; font-weight: 700; color: #111111; letter-spacing: -0.02em; margin-bottom: 0.1rem; }
+    .res-contact-info { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #444442; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.2rem; }
+    .res-links-row { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #D9381E; margin-top: 0.2rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .res-links-row a { text-decoration: underline; }
+
+    .res-section { margin-bottom: 0.9rem; }
+    .res-section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1.5px solid #222220; padding-bottom: 0.15rem; margin-bottom: 0.4rem; color: #141413; }
+    
+    .res-body-text { font-size: 0.8rem; color: #333332; line-height: 1.45; }
+
+    .res-item-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.1rem; }
+    .res-item-title { font-weight: 700; font-size: 0.84rem; color: #111111; }
+    .res-item-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #555552; }
+    .res-item-desc { font-size: 0.78rem; color: #444442; line-height: 1.35; margin-top: 0.1rem; margin-bottom: 0.3rem; }
+    .res-bullet-list { margin-left: 1rem; font-size: 0.78rem; color: #444442; line-height: 1.35; margin-top: 0.1rem; margin-bottom: 0.3rem; }
+    .res-bullet-list li { margin-bottom: 0.1rem; }
+
+    /* PERFECT SINGLE-PAGE PRINT STYLES */
+    @media print {
+      body { background: #FFFFFF !important; color: #000000 !important; }
+      body * { visibility: hidden; }
+      .resume-modal, .resume-modal * { visibility: visible; }
+      .resume-modal { 
+        position: absolute; 
+        inset: 0; 
+        background: transparent !important; 
+        backdrop-filter: none !important; 
+        padding: 0 !important; 
+        overflow: visible !important;
+        display: block !important;
+      }
+      .resume-sheet { 
+        box-shadow: none !important; 
+        max-width: 100% !important; 
+        width: 100% !important; 
+        padding: 0 !important; 
+        border-top: none !important;
+        margin: 0 !important;
+      }
+      .resume-close-bar { display: none !important; }
+      @page { size: A4 portrait; margin: 6mm 8mm; }
+    }
+
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; padding: 0.8rem 1.2rem; background: transparent; color: var(--ink-primary); border: 1px solid var(--border-strong); cursor: pointer; }
+    .btn-secondary:hover { background-color: var(--bg-surface); }
+
+    .site-footer { max-width: var(--max-w); margin: 0 auto; padding: 1.75rem 1.5rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); border-top: 1px solid var(--border-hairline); }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-wordmark">
+        <span class="brand-name">Yeash Kumar Sudhir</span>
+        <span class="brand-coord">Varanasi, IN</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">00 / Home</a>
+        <a href="work.html" class="nav-link">01 / Work</a>
+        <a href="about.html" class="nav-link">02 / About</a>
+        <a href="capabilities.html" class="nav-link">03 / Skills</a>
+        <a href="certificates.html" class="nav-link">04 / Certificates</a>
+        <a href="contact.html" class="nav-cta">Get in Touch</a>
+
+        <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="theme-label">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL ATS-FRIENDLY RESUME MODAL -->
+  <div class="resume-modal" id="resume-modal" role="dialog" aria-modal="true">
+    <div class="resume-sheet">
+      <div class="resume-close-bar">
+        <button type="button" class="resume-action-btn" onclick="printResume()">Print / Save PDF</button>
+        <button type="button" class="resume-action-btn" onclick="closeResumeModal()" style="background: #D9381E;">Close ✕</button>
+      </div>
+
+      <!-- RESUME HEADER -->
+      <div class="res-header">
+        <h1 class="res-name">Yeash Kumar Sudhir</h1>
+        <div class="res-contact-info">
+          <span>Varanasi, UP, India</span> • 
+          <span>+91 9628468488</span> • 
+          <span>yeashkumar.artec@gmail.com</span>
+        </div>
+        <div class="res-links-row">
+          <a href="https://yeashkumarsudhir.github.io" target="_blank">Portfolio: yeashkumarsudhir.github.io</a>
+          <a href="https://github.com/yeashkumarsudhir" target="_blank">GitHub: @yeashkumarsudhir</a>
+          <a href="https://www.linkedin.com/in/yeashkumar" target="_blank">LinkedIn: in/yeashkumar</a>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="res-section">
+        <h2 class="res-section-title">Professional Summary</h2>
+        <p class="res-body-text">
+          Dedicated BCA 5th-semester student at Mahatma Gandhi Kashi Vidyapith University (MGKVP), Varanasi, with a strong foundation in full-stack web development, JavaScript (ES6+), and Google Firebase cloud architecture. Proven ability to architect and deploy production-grade applications like <em>Advocate Diary</em> and university hostel operations systems. Backed by industry-recognized simulations in Cybersecurity and GenAI Data Analytics from TATA, seeking software development internships.
+        </p>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="res-section">
+        <h2 class="res-section-title">Technical Expertise</h2>
+        <p class="res-body-text">
+          <strong>Programming Languages:</strong> JavaScript (Vanilla ES6+), C, C++, Python, HTML5, CSS3<br>
+          <strong>Cloud &amp; Databases:</strong> Google Firebase (Firestore, Auth, Hosting), Vercel Edge Deployment<br>
+          <strong>Tools &amp; Workflow:</strong> Git, GitHub, PowerShell, VS Code, AI Productivity Tools (ChatGPT, Claude, Gemini)
+        </p>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="res-section">
+        <h2 class="res-section-title">Key Projects &amp; Initiatives</h2>
+
+        <div class="res-item-row">
+          <span class="res-item-title">Advocate Diary — Smart Legal Management App</span>
+          <span class="res-item-sub">Firebase / JavaScript</span>
+        </div>
+        <ul class="res-bullet-list">
+          <li>Architected a cloud-native web application replacing traditional paper registers with real-time Firestore persistence and secure soft-delete recovery.</li>
+        </ul>
+
+        <div class="res-item-row" style="margin-top: 0.25rem;">
+          <span class="res-item-title">Hostel Mess Management System</span>
+          <span class="res-item-sub">Firebase / Web Portal</span>
+        </div>
+        <ul class="res-bullet-list">
+          <li>Developed a comprehensive digital operations portal for university hostel residents to track daily meal logs, attendance, and menu schedules.</li>
+        </ul>
+
+        <div class="res-item-row" style="margin-top: 0.25rem;">
+          <span class="res-item-title">Mini Gaming Arcade</span>
+          <span class="res-item-sub">Vercel / DOM API</span>
+        </div>
+        <ul class="res-bullet-list">
+          <li>Engineered an interactive browser-based gaming platform featuring multiple mini-games with dynamic DOM manipulation and responsive design.</li>
+        </ul>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="res-section">
+        <h2 class="res-section-title">Certifications &amp; Job Simulations</h2>
+        <ul class="res-bullet-list">
+          <li><strong>AI and Cybersecurity Awareness:</strong> Certified by TCS iON / TATA (Guinness World Records initiative).</li>
+          <li><strong>GenAI Powered Data Analytics &amp; Cybersecurity Analyst:</strong> Completed practical job simulations via TATA / Forage.</li>
+          <li><strong>Basic Russian Language Course:</strong> Certified by Center for Open Education in Russian (Russian Ministry of Education).</li>
+        </ul>
+      </div>
+
+      <!-- EDUCATION (SEPARATE & WITH PERCENTAGE - CLEAN) -->
+      <div class="res-section">
+        <h2 class="res-section-title">Education</h2>
+        
+        <div class="res-item-row">
+          <span class="res-item-title">Bachelor of Computer Applications (BCA — Pursuring, 5th Semester)</span>
+          <span class="res-item-sub">2024 – 2027</span>
+        </div>
+        <p class="res-item-desc">Mahatma Gandhi Kashi Vidyapith University (MGKVP), Varanasi</p>
+
+        <div class="res-item-row" style="margin-top: 0.2rem;">
+          <span class="res-item-title">Intermediate (Class 12th) — UP Board (65.60%)</span>
+          <span class="res-item-sub">2023 – 2024</span>
+        </div>
+        <p class="res-item-desc">Government City Inter College, Ghazipur</p>
+
+        <div class="res-item-row" style="margin-top: 0.2rem;">
+          <span class="res-item-title">Matriculation (Class 10th) — UP Board (74.33%)</span>
+          <span class="res-item-sub">2021 – 2022</span>
+        </div>
+        <p class="res-item-desc">Government City Inter College, Ghazipur</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SHELL -->
+  <div class="page-shell">
+    <aside class="index-rail">
+      <div class="rail-menu">
+        <div class="rail-label">Directory</div>
+        <a href="index.html" class="rail-item">00 / Home Overview</a>
+        <a href="work.html" class="rail-item">01 / Selected Work</a>
+        <a href="about.html" class="rail-item">02 / About &amp; Education</a>
+        <a href="capabilities.html" class="rail-item">03 / Skills</a>
+        <a href="certificates.html" class="rail-item">04 / Certificates</a>
+        <a href="contact.html" class="rail-item active">05 / Contact</a>
+      </div>
+      <div class="rail-meta">
+        <div>BCA (2024–2027)</div>
+        <div>MGKVP University</div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="section-block">
+        <div class="section-kicker">05 / Contact &amp; Channels</div>
+        <h1 class="page-heading">Let's Connect &amp; Collaborate</h1>
+        <p class="page-sub">Available for software development internships, web projects, and technical collaborations. Reach out directly via email, phone, or official channels below.</p>
+
+        <div class="contact-layout">
+          <div>
+            <div class="email-box">
+              <a href="mailto:yeashkumar.artec@gmail.com" class="email-address">
+                <span>yeashkumar.artec@gmail.com</span>
+              </a>
+              <button type="button" class="copy-btn" onclick="copyEmail()" id="copy-btn">Copy Email</button>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--ink-secondary); margin-top: 1rem; margin-bottom: 1.5rem;">
+              <span>Phone / WhatsApp: </span>
+              <a href="tel:+919628468488" style="color: var(--ink-primary); font-weight: 600;">+91 9628468488</a>
+            </div>
+
+            <div>
+              <button type="button" class="btn-secondary" onclick="openResumeModal()">View Professional Resume ↗</button>
+            </div>
+          </div>
+
+          <!-- Social Channels with Logos -->
+          <div class="directory-card">
+            <!-- GitHub -->
+            <div class="dir-row">
+              <div class="dir-platform-wrap">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span class="dir-platform">GitHub</span>
+              </div>
+              <a href="https://github.com/yeashkumarsudhir" target="_blank" class="dir-handle">@yeashkumarsudhir ↗</a>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="dir-row">
+              <div class="dir-platform-wrap">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span class="dir-platform">LinkedIn</span>
+              </div>
+              <a href="https://www.linkedin.com/in/yeashkumar" target="_blank" class="dir-handle">in/yeashkumar ↗</a>
+            </div>
+
+            <!-- Instagram -->
+            <div class="dir-row">
+              <div class="dir-platform-wrap">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span class="dir-platform">Instagram</span>
+              </div>
+              <a href="https://instagram.com/agp_offical" target="_blank" class="dir-handle">@agp_offical ↗</a>
+            </div>
+
+            <!-- YouTube -->
+            <div class="dir-row">
+              <div class="dir-platform-wrap">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span class="dir-platform">YouTube</span>
+              </div>
+              <a href="https://youtube.com/@agp_offical" target="_blank" class="dir-handle">@agp_offical ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Yeash Kumar Sudhir. Handcrafted in Varanasi, India.</div>
+    <div>LEARN · GROW · CONTRIBUTE</div>
+  </footer>
+
+  <script>
+    function openResumeModal() { document.getElementById('resume-modal').classList.add('active'); }
+    function closeResumeModal() { document.getElementById('resume-modal').classList.remove('active'); }
+    function printResume() { window.print(); }
+
+    function copyEmail() {
+      navigator.clipboard.writeText('yeashkumar.artec@gmail.com').then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Email'; }, 2000);
+      });
+    }
+
+    function updateThemeLabel(theme) {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = theme === 'dark' ? 'Light' : 'Dark';
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('portfolio-theme', next);
+      updateThemeLabel(next);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeLabel(document.documentElement.getAttribute('data-theme') || 'light');
+    });
+  </script>
+</body>
+</html>
