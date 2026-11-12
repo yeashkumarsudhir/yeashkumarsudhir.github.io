@@ -1,20 +1,23 @@
 {
   "name": "Yeash Kumar Sudhir Portfolio",
   "short_name": "Yeash Portfolio",
-  "start_url": "/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#F6F4EF",
   "theme_color": "#D9381E",
   "icons": [
     {
-      "src": "profile.jpeg",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "profile.jpeg",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
