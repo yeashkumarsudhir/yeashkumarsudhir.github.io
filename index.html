@@ -6,6 +6,10 @@
   <title>Yeash Kumar Sudhir — BCA Student & Aspiring Tech Professional</title>
   <meta name="description" content="Portfolio of Yeash Kumar Sudhir — BCA student at Mahatma Gandhi Kashi Vidyapith University, Varanasi. Aspiring tech professional exploring programming, AI, and software development." />
   
+  <!-- PWA Manifest & Theme Color -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#D9381E">
+
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="ClJCyzVDnjx8Fv8i1qjHmbtU-bJCk-u8aRHr5xsZBVI" />
 
@@ -358,6 +362,17 @@
     <div>© 2026 Yeash Kumar Sudhir. Handcrafted in Varanasi, India.</div>
     <div>LEARN · GROW · CONTRIBUTE</div>
   </footer>
+
+  <!-- Service Worker Registration for PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log('Service Worker Registered'))
+          .catch((err) => console.log('Service Worker Failed', err));
+      });
+    }
+  </script>
 
   <script>
     function updateThemeLabel(theme) {
